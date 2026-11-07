@@ -1,0 +1,1070 @@
+/* ==========================================================================
+   SIA-Rasionalisasi GovTech SPBE - Custom Styles
+   Design System: GovTech Color Tokens, Briefing Layout, Print Styles
+   ========================================================================== */
+
+/* --- 1. GovTech Color Tokens ------------------------------------------------ */
+:root {
+  --gov-navy: #0B1D3A;
+  --gov-indigo: #3B4FD8;
+  --gov-indigo-light: #6366F1;
+  --gov-emerald: #059669;
+  --gov-emerald-light: #10B981;
+  --gov-amber: #D97706;
+  --gov-amber-light: #F59E0B;
+  --gov-rose: #E11D48;
+  --gov-rose-light: #F43F5E;
+  --gov-slate: #64748B;
+
+  --font-main: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+}
+
+/* --- 2. Base & Layout -------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #0f172a;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background-color: #94a3b8; }
+
+/* Selection */
+::selection { background-color: var(--gov-indigo); color: white; }
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--gov-indigo);
+  outline-offset: 2px;
+}
+
+/* --- 3. Utility Classes ------------------------------------------------------ */
+.font-main { font-family: var(--font-main); }
+.font-mono { font-family: var(--font-mono); }
+
+.text-gov-navy { color: var(--gov-navy); }
+.text-gov-indigo { color: var(--gov-indigo); }
+.text-gov-emerald { color: var(--gov-emerald); }
+.text-gov-amber { color: var(--gov-amber); }
+.text-gov-rose { color: var(--gov-rose); }
+
+/* High contrast text for dark backgrounds */
+.text-on-navy { color: #f8fafc; }  /* slate-50 */
+.text-on-indigo { color: #f8fafc; }
+.text-on-emerald { color: #f8fafc; }
+.text-on-amber { color: #0f172a; }
+.text-on-rose { color: #f8fafc; }
+
+.bg-gov-navy { background-color: var(--gov-navy); }
+.bg-gov-indigo { background-color: var(--gov-indigo); }
+.bg-gov-emerald { background-color: var(--gov-emerald); }
+.bg-gov-amber { background-color: var(--gov-amber); }
+.bg-gov-rose { background-color: var(--gov-rose); }
+
+/* --- 4. Tab System ----------------------------------------------------------- */
+.tab-nav {
+  display: flex;
+  background: white;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  color: var(--gov-slate);
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: var(--gov-indigo);
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover { color: var(--gov-indigo); }
+
+.tab-btn.active { color: var(--gov-indigo); }
+.tab-btn.active::after { width: 100%; left: 0; right: auto; }
+
+.tab-content { display: none; animation: fadeIn 0.3s ease forwards; }
+.tab-content.active { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* --- 5. Table Styles (Legacy tabs) ------------------------------------------ */
+.table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-container-large { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.data-table th {
+  position: sticky;
+  top: 0;
+  background-color: #334155;
+  color: white;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-align: left;
+  border-bottom: 2px solid #475569;
+}
+
+.data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.15s ease;
+}
+
+.data-table tr:hover td { background-color: #f1f5f9; }
+.data-table tbody tr:nth-child(odd) { background-color: white; }
+.data-table tbody tr:nth-child(even) { background-color: #f8fafc; }
+
+.data-table .mono-num, .data-table .font-mono { font-family: var(--font-mono); font-size: 0.8125rem; }
+
+/* --- 6. Badge/Status Styles -------------------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-integrasi { background-color: #d1fae5; color: #065f46; }
+.badge-replikasi { background-color: #fef3c7; color: #92400e; }
+.badge-decommissioned { background-color: #fee2e2; color: #b91c1c; }
+.badge-konsisten { background-color: #d1fae5; color: #065f46; }
+.badge-tidak-konsisten { background-color: #fee2e2; color: #b91c1c; }
+.badge-regulasi { background-color: var(--gov-indigo); color: white; }
+
+/* --- 7. Briefing Layout (Tab 1) --------------------------------------------- */
+
+/* Briefing page container */
+.briefing-page {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-5);
+  min-height: calc(100vh - 200px);
+}
+
+/* Briefing header */
+.briefing-header {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  border: 1px solid #e2e8f0;
+}
+
+.briefing-header h1 { margin: 0; font-size: 1.5rem; line-height: 1.3; font-weight: 700; }
+.briefing-header p { margin: 0.25rem 0 0; }
+
+.briefing-header .flex.items-center.gap-4 {
+  padding-top: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+/* Type hierarchy for briefing page */
+.briefing-chart-title { font-size: 1rem; font-weight: 600; color: #334155; padding: var(--space-3) var(--space-4); margin: 0; background: #f8fafc; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; }
+.briefing-table-title { font-size: 1rem; font-weight: 600; color: #334155; margin: 0; display: flex; align-items: center; }
+
+/* KPI Row - optimized for single viewport */
+.briefing-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .briefing-kpi-row { grid-template-columns: repeat(4, 1fr); }
+}
+
+.briefing-kpi {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  /* Removed thick side-tab accent border - using subtle top accent instead */
+}
+
+.briefing-kpi:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #cbd5e1;
+}
+
+.briefing-kpi-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.briefing-kpi-total .briefing-kpi-icon { background: #e0e7ff; color: var(--gov-indigo); }
+.briefing-kpi-integrasi .briefing-kpi-icon { background: #d1fae5; color: var(--gov-emerald); }
+.briefing-kpi-replikasi .briefing-kpi-icon { background: #fef3c7; color: var(--gov-amber); }
+.briefing-kpi-decommissioned .briefing-kpi-icon { background: #fee2e2; color: var(--gov-rose); }
+
+/* Accent via background gradient on icon wrapper — no pseudo-element border */
+.briefing-kpi-total .briefing-kpi-icon { background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); color: var(--gov-indigo); }
+.briefing-kpi-integrasi .briefing-kpi-icon { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); color: var(--gov-emerald); }
+.briefing-kpi-replikasi .briefing-kpi-icon { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); color: var(--gov-amber); }
+.briefing-kpi-decommissioned .briefing-kpi-icon { background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); color: var(--gov-rose); }
+
+.briefing-kpi-content { flex: 1; min-width: 0; }
+
+.briefing-kpi-label {
+  font-size: 0.875rem; /* 14px — clears 11px floor */
+  font-weight: 600;
+  color: var(--gov-slate);
+  margin: 0 0 0.125rem;
+  white-space: nowrap;
+}
+
+.briefing-kpi-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #0f172a;
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+.briefing-kpi-sub {
+  font-size: 0.875rem; /* 14px — clears 11px floor */
+  color: var(--gov-slate);
+  margin: 0.125rem 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Charts Row */
+.briefing-charts-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .briefing-charts-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+.briefing-chart-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.briefing-chart-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #334155;
+  padding: var(--space-3) var(--space-4);
+  margin: 0;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+}
+
+.briefing-chart-container {
+  padding: var(--space-4);
+  aspect-ratio: 3/2;
+  min-height: 200px;
+}
+
+/* Tables Row */
+.briefing-tables-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .briefing-tables-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+.briefing-table-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.briefing-table-header {
+  padding: var(--space-3) var(--space-4);
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.briefing-table-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.briefing-table-container { overflow-x: auto; }
+
+.briefing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.briefing-table th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+  font-size: 0.75rem; /* 12px — above 11px floor */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.briefing-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+  font-size: 0.8125rem; /* 13px — above 11px floor */
+}
+
+.briefing-table tbody tr:last-child td { border-bottom: none; }
+.briefing-table tbody tr:hover td { background-color: #f8fafc; }
+
+/* Column widths */
+.briefing-col-rank { width: 36px; text-align: center; }
+.briefing-col-kode { width: 72px; }
+.briefing-col-nama { min-width: 140px; max-width: 200px; }
+.briefing-col-instansi { min-width: 100px; max-width: 140px; }
+.briefing-col-score { width: 72px; text-align: right; }
+
+.briefing-table .rank { font-family: var(--font-mono); font-weight: 700; color: #0f172a; font-size: 0.75rem; }
+.briefing-table .kode { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--gov-slate); }
+.briefing-table .nama { font-weight: 500; color: #1e293b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.briefing-table .instansi { font-size: 0.6875rem; color: var(--gov-slate); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.briefing-table .score { font-family: var(--font-mono); font-weight: 700; font-size: 0.8125rem; }
+
+/* Row color coding for top/bottom tables */
+.briefing-table-card:first-child .briefing-table tbody tr td:last-child {
+  color: var(--gov-emerald);
+}
+.briefing-table-card:last-child .briefing-table tbody tr td:last-child {
+  color: var(--gov-rose);
+}
+
+/* Briefing footer (print only) */
+.briefing-footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.6875rem;
+  color: var(--gov-slate);
+}
+
+/* --- 8. Chart Container (Legacy compatibility) ------------------------------ */
+.chart-container { position: relative; width: 100%; aspect-ratio: 3/2; background: white; border-radius: var(--radius-lg); overflow: hidden; }
+.chart-container canvas { width: 100%; height: 100%; }
+
+/* --- 9. Matrix Table (AHP Tab) ---------------------------------------------- */
+.matrix-wrapper { background: white; border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-sm); }
+
+.matrix-table { width: 100%; border-collapse: collapse; }
+.matrix-table th { background-color: #f1f5f9; color: #334155; padding: 0.75rem 0.5rem; font-size: 0.75rem; font-weight: 600; text-align: center; border: 1px solid #e2e8f0; }
+.matrix-table td { padding: 0.5rem; border: 1px solid #e2e8f0; text-align: center; vertical-align: middle; }
+
+.matrix-cell-diagonal { background-color: #f8fafc; color: var(--gov-slate); }
+.matrix-cell-reciprocal { background-color: #f1f5f9; color: #0f172a; }
+.matrix-cell-sum { background-color: #e2e8f0; color: #334155; font-weight: 600; }
+
+.matrix-cell-input select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2364748b' stroke-width='2' d='m2 5 4 4 4-4-2-2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.25rem;
+  border: 1px solid #94a3b8;
+  border-radius: var(--radius-sm);
+  padding: 0.375rem 0.5rem;
+  font-size: 0.8125rem;
+  min-width: 6rem;
+  color: #0f172a;
+  font-family: var(--font-mono);
+}
+.matrix-cell-input select:focus { outline: 2px solid var(--gov-indigo); outline-offset: 2px; }
+
+/* --- 10. Weight Bars -------------------------------------------------------- */
+.weight-bars { background: white; border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-sm); }
+
+.weight-bar-container { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-2); }
+.weight-bar-label { width: 3rem; font-size: 0.75rem; color: var(--gov-slate); font-weight: 500; }
+.weight-bar { flex: 1; height: 0.5rem; background-color: #e2e8f0; border-radius: var(--radius-full); overflow: hidden; }
+.weight-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gov-indigo), var(--gov-indigo-light));
+  border-radius: var(--radius-full);
+  transition: width 0.6s ease;
+  position: relative;
+}
+.weight-bar-percent { position: absolute; right: 0.5rem; font-size: 0.625rem; font-weight: 600; color: white; top: 50%; transform: translateY(-50%); }
+
+/* --- 11. CR Validator Card -------------------------------------------------- */
+.cr-card { background: white; border-radius: var(--radius-lg); padding: var(--space-6); box-shadow: var(--shadow-sm); border: 1px solid #e2e8f0; }
+.cr-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: var(--space-4); }
+.cr-icon { width: 2rem; height: 2rem; border-radius: 50%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; }
+.cr-icon.konsisten { background: #d1fae5; color: #059669; }
+.cr-icon.tidak-konsisten { background: #fee2e2; color: #b91c1c; }
+.cr-formula { background: #f8fafc; padding: var(--space-4); border-radius: var(--radius-md); margin: var(--space-4) 0; text-align: center; }
+.cr-formula-text { font-family: var(--font-mono); font-size: 0.875rem; color: #334155; line-height: 1.5; }
+.cr-status { font-size: 1.25rem; font-weight: 700; text-align: center; }
+.cr-status.konsisten { color: #059669; }
+.cr-status.tidak-konsisten { color: #b91c1c; }
+
+/* --- 12. Modal Styles ------------------------------------------------------- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px);
+  z-index: 50; display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; padding: var(--space-4);
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+
+.modal-content {
+  background: white; margin: auto; border-radius: var(--radius-xl); max-width: 640px;
+  max-height: 90vh; overflow-y: auto; width: calc(100% - 2rem);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: slideUp 0.3s ease forwards;
+}
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.modal-header { padding: var(--space-4) var(--space-6); border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; }
+.modal-header h3 { font-size: 1.125rem; font-weight: 600; margin: 0; color: #0f172a; }
+.modal-close { background: transparent; border: none; font-size: 1.5rem; color: var(--gov-slate); cursor: pointer; padding: 0; line-height: 1; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); }
+.modal-close:hover { background: #f1f5f9; color: #0f172a; }
+.modal-body { padding: var(--space-6); }
+.modal-footer { padding: var(--space-4) var(--space-6); border-top: 1px solid #e2e8f0; display: flex; justify-content: flex-end; gap: var(--space-2); }
+
+/* --- 13. Button Styles ------------------------------------------------------ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.5rem 1rem; border-radius: var(--radius-md);
+  font-size: 0.875rem; font-weight: 500; cursor: pointer;
+  transition: all 0.2s ease; border: none; gap: 0.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+/* Ensure Iconify icons render inline with text — force SVG horizontal */
+.btn .iconify,
+.btn span.iconify {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.btn .iconify svg,
+.btn span.iconify svg {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  flex-shrink: 0;
+}
+
+.btn-primary { background-color: var(--gov-indigo); color: white; }
+.btn-primary:hover { background-color: #313ab8; }
+
+.btn-success { background-color: var(--gov-emerald); color: white; }
+.btn-success:hover { background-color: #047857; }
+
+.btn-danger { background-color: var(--gov-rose); color: white; }
+.btn-danger:hover { background-color: #be123c; }
+
+.btn-outline { background: transparent; border: 1px solid #94a3b8; color: #334155; }
+.btn-outline:hover { background-color: #f1f5f9; color: #1e293b; }
+
+/* Outline variant for dark backgrounds (navbar, dark cards) */
+.btn-outline-dark {
+  background: transparent;
+  border: 1px solid #64748b;
+  color: #e2e8f0;
+}
+.btn-outline-dark:hover {
+  background-color: #1e293b;
+  border-color: #94a3b8;
+  color: #f8fafc;
+}
+.btn-outline-dark:focus-visible {
+  outline: 2px solid var(--gov-indigo);
+  outline-offset: 2px;
+}
+
+/* Tab buttons - single line */
+.tab-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Tab button states on white nav background */
+.tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #64748b;
+  padding: 0.625rem 1rem;
+  font-weight: 500;
+}
+.tab-btn:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  border-color: #e2e8f0;
+}
+.tab-btn.active {
+  background-color: var(--gov-indigo);
+  color: white;
+  border-color: var(--gov-indigo);
+}
+.tab-btn.active:hover {
+  background-color: #313ab8;
+  color: white;
+}
+
+/* --- 14. Form Input Styles -------------------------------------------------- */
+.form-input, .form-select {
+  width: 100%; padding: 0.5rem 0.75rem; font-size: 0.875rem; font-family: var(--font-main);
+  color: #0f172a; background-color: white; border: 1px solid #94a3b8; border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-input:focus, .form-select:focus {
+  outline: none; border-color: var(--gov-indigo); box-shadow: 0 0 0 3px rgba(59, 79, 216, 0.15);
+}
+.form-label { display: block; font-size: 0.75rem; font-weight: 500; color: #334155; margin-bottom: 0.25rem; }
+
+/* --- 15. Pagination --------------------------------------------------------- */
+.pagination { display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem; margin-top: var(--space-4); }
+.pagination-btn {
+  padding: 0.5rem 0.75rem; font-size: 0.75rem; color: var(--gov-slate);
+  background: transparent; border: 1px solid #e2e8f0; border-radius: var(--radius-sm); cursor: pointer;
+  transition: all 0.15s ease;
+}
+.pagination-btn:hover:not(.active) { background-color: #f1f5f9; border-color: #cbd5e1; }
+.pagination-btn.active { background-color: var(--gov-indigo); border-color: var(--gov-indigo); color: white; }
+.pagination-info { font-size: 0.6875rem; color: var(--gov-slate); }
+
+/* --- 16. Animations --------------------------------------------------------- */
+@keyframes pulse-green { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.pulse-green { animation: pulse-green 2s ease-in-out infinite; }
+
+/* --- 17. Print Styles ------------------------------------------------------- */
+@media print {
+  /* Hide navigation and UI chrome */
+  header, nav.tab-nav, .hidden-print, .briefing-header,
+  .btn-print-briefing, button, .modal-overlay, .pagination,
+  .briefing-footer {
+    display: none !important;
+  }
+
+  /* Page setup */
+  @page { size: A4 portrait; margin: 15mm; }
+  body { background: white !important; color: black !important; padding: 0; margin: 0; font-size: 10pt; }
+  #main-content { max-width: none; padding: 0; margin: 0; }
+
+  /* Briefing page fills page */
+  .briefing-page {
+    box-shadow: none !important; border: none !important; border-radius: 0 !important;
+    padding: 0 !important; min-height: auto !important; page-break-inside: avoid;
+  }
+
+  /* KPI row - compact for print */
+  .briefing-kpi-row { gap: 8px; margin-bottom: 12px; }
+  .briefing-kpi { padding: 10px 12px; border: 1px solid #ccc; border-top-width: 2px; border-left-width: 1px; }
+  .briefing-kpi-icon { width: 36px; height: 36px; }
+  .briefing-kpi-value { font-size: 1.5rem; }
+  .briefing-kpi-label { font-size: 0.55rem; }
+  .briefing-kpi-sub { font-size: 0.6rem; }
+
+  /* Charts - smaller for print */
+  .briefing-charts-row { gap: 8px; margin-bottom: 12px; }
+  .briefing-chart-card { border: 1px solid #ccc; border-radius: 6px; }
+  .briefing-chart-title { font-size: 0.7rem; padding: 8px 10px; }
+  .briefing-chart-container { padding: 10px; aspect-ratio: 4/3; min-height: 140px; }
+
+  /* Tables */
+  .briefing-tables-row { gap: 8px; }
+  .briefing-table-card { border: 1px solid #ccc; border-radius: 6px; }
+  .briefing-table-header { padding: 8px 10px; }
+  .briefing-table-title { font-size: 0.7rem; }
+  .briefing-table { font-size: 0.625rem; }
+  .briefing-table th, .briefing-table td { padding: 4px 6px; }
+  .briefing-table th { background: #f0f0f0 !important; color: #333 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Color coding for print */
+  .briefing-kpi-total { border-top-color: #333 !important; }
+  .briefing-kpi-integrasi { border-top-color: #059669 !important; }
+  .briefing-kpi-replikasi { border-top-color: #D97706 !important; }
+  .briefing-kpi-decommissioned { border-top-color: #E11D48 !important; }
+
+  .briefing-kpi-icon { background: #f0f0f0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Show print footer */
+  .briefing-footer { display: flex !important; margin-top: 16px; padding-top: 8px; font-size: 0.6rem; color: #666; }
+
+  /* Avoid breaks */
+  .briefing-chart-card, .briefing-table-card, .briefing-kpi { page-break-inside: avoid; }
+  .briefing-table thead { display: table-header-group; }
+  .briefing-table tbody tr { page-break-inside: avoid; }
+
+  /* Data tables (other tabs) */
+  .data-table thead { display: table-header-group; }
+  .data-table tbody tr { page-break-inside: avoid; }
+  .kpi-card { border-left-color: #333; box-shadow: none; }
+}
+
+/* Screen-only print footer class */
+.hidden-print-only { display: none; }
+@media print { .hidden-print-only { display: block !important; } }
+
+/* --- 18. Responsive Tweaks -------------------------------------------------- */
+@media (max-width: 1366px) {
+  .briefing-kpi { padding: var(--space-3); }
+  .briefing-kpi-value { font-size: 1.5rem; }
+  .briefing-kpi-icon { width: 40px; height: 40px; }
+  .briefing-chart-container { min-height: 180px; }
+}
+
+@media (max-width: 1024px) {
+  .tab-btn { padding: 0.5rem 0.75rem; font-size: 0.75rem; }
+  .data-table th, .data-table td { padding: 0.5rem; font-size: 0.7rem; }
+  .briefing-page { padding: var(--space-4); }
+  .briefing-chart-container { min-height: 160px; }
+}
+
+@media (max-width: 768px) {
+  .briefing-kpi-row { grid-template-columns: 1fr; }
+  .briefing-charts-row { grid-template-columns: 1fr; }
+  .briefing-tables-row { grid-template-columns: 1fr; }
+  header { padding: var(--space-3); }
+  header h1 { font-size: 1.5rem; }
+  .briefing-page { padding: var(--space-3); border-radius: 0; }
+}
+
+@media (max-width: 640px) {
+  body { padding: 0; }
+  .briefing-kpi-value { font-size: 1.25rem; }
+  .briefing-kpi-icon { width: 36px; height: 36px; }
+  .briefing-chart-container { min-height: 140px; }
+  .pagination { justify-content: space-between; }
+  .pagination-info { display: none; }
+}
+
+/* =============================================================================
+   19. LANDING PAGE STYLES (Namespaced under #landing-view)
+   ============================================================================= */
+
+/* Base override for landing view */
+#landing-view {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+/* Landing Navigation */
+#landing-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#landing-nav nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+#landing-nav .landing-nav-link {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  border-radius: 0.5rem;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
+}
+
+#landing-nav .landing-nav-link:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+}
+
+#landing-nav .landing-nav-link:focus-visible {
+  outline: 2px solid #3B4FAE;
+  outline-offset: 2px;
+}
+
+/* Landing Buttons */
+#landing-view .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  border: none;
+  white-space: nowrap;
+}
+
+#landing-view .btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+#landing-view .btn-primary:active {
+  transform: translateY(0);
+}
+
+#landing-view .btn-primary:focus-visible {
+  outline: 2px solid #3B4FAE;
+  outline-offset: 2px;
+}
+
+#landing-view .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  border: 1px solid #cbd5e1;
+  background: transparent;
+  color: #334155;
+  white-space: nowrap;
+}
+
+#landing-view .btn-ghost:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+#landing-view .btn-ghost:focus-visible {
+  outline: 2px solid #3B4FAE;
+  outline-offset: 2px;
+}
+
+/* Hero Section */
+#hero {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 1024px) {
+  #hero {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  #hero {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Preview Frame */
+#hero [role="img"] {
+  max-width: 480px;
+  margin-left: auto;
+}
+
+@media (max-width: 1024px) {
+  #hero [role="img"] {
+    max-width: 100%;
+    position: static;
+    margin-top: 2rem;
+  }
+}
+
+/* Section Spacing */
+#landing-view section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Section Headers */
+#landing-view section header {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section Labels */
+#landing-view .text-xs.font-semibold.uppercase.tracking-wider {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+/* Section Titles */
+#landing-view h2[id$="-title"] {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 640px) {
+  #landing-view h2[id$="-title"] {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+/* Stats Cards (Section 3) */
+#urgensi article {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#urgensi article:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Bento Grid (Section 4) */
+#arsitektur .grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+#arsitektur article {
+  position: relative;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#arsitektur article:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Policy Cards (Section 5) */
+#kebijakan article {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#kebijakan article:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Pipeline Steps (Section 6) */
+#metodologi article {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#metodologi article:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+/* Footer Links */
+footer a {
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+footer a:hover {
+  color: #0f172a;
+}
+
+/* Focus visible for all interactive elements in landing */
+#landing-view :focus-visible {
+  outline: 2px solid #3B4FAE;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #landing-view *,
+  #landing-view *::before,
+  #landing-view *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Responsive adjustments for landing */
+@media (max-width: 1024px) {
+  #landing-nav .hidden.md\\:flex {
+    display: none !important;
+  }
+
+  #hero .grid.lg\\:grid-cols-12 {
+    display: block;
+  }
+
+  #hero [role="img"] {
+    max-width: 100%;
+  }
+
+  #arsitektur .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #arsitektur article {
+    grid-column: auto !important;
+  }
+
+  #kebijakan .grid.md\\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  #metodologi .grid.lg\\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  #metodologi .hidden.lg\\:block {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #landing-nav nav {
+    padding: 1rem;
+  }
+
+  #hero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #landing-view section[id] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #landing-view h2[id$="-title"] {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  #urgensi .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  #urgensi article {
+    padding: 1.25rem;
+  }
+
+  #urgensi .font-mono.text-4xl {
+    font-size: 2.5rem;
+  }
+
+  #kebijakan article {
+    padding: 1.25rem;
+  }
+
+  #kebijakan .font-mono.text-4xl {
+    font-size: 2.5rem;
+  }
+
+  .bg-slate-900.rounded-xl {
+    padding: 2rem 1.25rem;
+  }
+}
+
+/* Print styles for landing view */
+@media print {
+  #landing-view {
+    display: none !important;
+  }
+}

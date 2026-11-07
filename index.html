@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIA-Rasionalisasi — GovTech SPBE Decision Intelligence</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            gov: {
+              navy: '#0B1D3A',
+              indigo: '#3B4FD8',
+              emerald: '#059669',
+              amber: '#D97706',
+              rose: '#E11D48',
+              slate: '#64748B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- PapaParse -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- Iconify (inline SVG icons) -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white font-sans text-slate-900 min-h-screen">
+
+  <!-- =========================================================================
+       LANDING VIEW — Enterprise Landing Page
+       ========================================================================= -->
+  <div id="landing-view">
+    <!-- Sticky Navigation -->
+    <header id="landing-nav" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+      <nav class="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between gap-6" role="navigation" aria-label="Main navigation">
+        <!-- Brand -->
+        <div class="flex items-center gap-3 shrink-0" aria-label="SIA-Rasionalisasi Home">
+          <svg class="w-8 h-8 text-indigo-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="M9 12l2 2 4-4"></path>
+          </svg>
+          <div>
+            <h1 class="text-xl font-semibold tracking-tight text-slate-900">SIA-Rasionalisasi</h1>
+            <p class="text-[11px] font-medium text-slate-500 uppercase tracking-wider">v1.0 Enterprise</p>
+          </div>
+        </div>
+
+        <!-- Nav Links (Desktop) -->
+        <div class="hidden md:flex items-center gap-1 mx-auto" role="menubar">
+          <a href="#urgensi" class="landing-nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md transition-colors" role="menuitem">Urgensi SPBE</a>
+          <a href="#arsitektur" class="landing-nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md transition-colors" role="menuitem">Arsitektur Kriteria</a>
+          <a href="#kebijakan" class="landing-nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md transition-colors" role="menuitem">Matriks Kebijakan</a>
+          <a href="#metodologi" class="landing-nav-link px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 rounded-md transition-colors" role="menuitem">Metodologi AHP</a>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3 shrink-0">
+          <button id="landing-cta-primary" class="btn-primary text-sm px-5 py-2 rounded-lg bg-indigo-700 text-white hover:bg-indigo-600 transition-colors flex items-center gap-2" type="button">
+            Buka Workspace AHP
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 px-6" aria-labelledby="hero-title">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+          <!-- Left: Copy -->
+          <div class="lg:col-span-7">
+            <!-- Eyebrow Badge -->
+            <span class="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 text-slate-700 text-sm font-medium rounded-full mb-6" aria-label="Regulatory compliance">
+              <svg class="w-3.5 h-3.5 text-indigo-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              Instrumen Kepatuhan Perpres No. 132/2022 & Perpres No. 82/2023
+            </span>
+
+            <!-- Main Headline -->
+            <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-6">
+              Hentikan Siloisasi. Rasionalisasi Portofolio Aplikasi Layanan Publik Secara Objektif.
+            </h1>
+
+            <!-- Sub-headline -->
+            <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
+              Platform Decision Intelligence berbasis Analytical Hierarchy Process (AHP) untuk mengaudit, memprioritaskan, dan mengintegrasikan ratusan aplikasi instansi pemerintah & BUMN ke dalam ekosistem GovTech INA Digital demi efisiensi anggaran TIK nasional.
+            </p>
+
+            <!-- CTA Cluster -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-12">
+              <button id="hero-cta-simulasi" class="btn-primary text-base px-6 py-3.5 rounded-lg bg-indigo-700 text-white hover:bg-indigo-600 transition-colors flex items-center justify-center gap-2" type="button">
+                Jalankan Simulasi Portofolio (500 Aplikasi)
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+              <button id="hero-cta-kalibrasi" class="btn-ghost text-base px-6 py-3.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors flex items-center justify-center gap-2" type="button">
+                Kalibrasi Matriks & Uji CR
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
+              </button>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500">
+              <div class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>CR = 0.0115 ≤ 0.10 (Valid)</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>100% Client-Side Engine</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Excel Parity Verified</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Preview Frame -->
+          <div class="lg:col-span-5 shrink-0">
+            <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden sticky top-28" style="max-height: calc(100vh - 12rem);" role="img" aria-label="Dashboard preview showing portfolio distribution and top ranked application">
+              <!-- Frame Header -->
+              <div class="bg-slate-50 border-b border-slate-200 px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-2.5 h-2.5 rounded-full bg-rose-400"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-amber-400"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
+                </div>
+                <span class="text-xs font-mono text-slate-500">dashboard.sia-rasionalisasi.gov</span>
+              </div>
+
+              <!-- Preview Content -->
+              <div class="p-5 space-y-5">
+                <!-- CR Status Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-full">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+                  <span class="font-mono">Consistency Ratio (CR): 0.0115 ≤ 0.10 (VALID)</span>
+                </div>
+
+                <!-- 3 Mini Metric Cards -->
+                <div class="grid grid-cols-3 gap-3">
+                  <div class="bg-slate-50 rounded-lg p-4 text-center border border-slate-200">
+                    <p class="font-mono text-2xl font-bold text-emerald-700">131</p>
+                    <p class="text-xs text-slate-600 mt-1">Integrasi INA Digital</p>
+                    <p class="text-xs font-mono text-slate-500">26.2%</p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-4 text-center border border-slate-200">
+                    <p class="font-mono text-2xl font-bold text-amber-700">191</p>
+                    <p class="text-xs text-slate-600 mt-1">Shared Service</p>
+                    <p class="text-xs font-mono text-slate-500">38.2%</p>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-4 text-center border border-slate-200">
+                    <p class="font-mono text-2xl font-bold text-rose-700">178</p>
+                    <p class="text-xs text-slate-600 mt-1">Decommissioned</p>
+                    <p class="text-xs font-mono text-slate-500">35.6%</p>
+                  </div>
+                </div>
+
+                <!-- Sample Ranking Row -->
+                <div class="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                  <p class="text-xs font-medium text-slate-500 uppercase tracking-wider mb-3">Sampel Peringkat #1</p>
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <p class="font-medium text-slate-900">APP-0162 — DigiKinerja</p>
+                      <p class="text-sm text-slate-500">Pemprov DKI Jakarta</p>
+                    </div>
+                    <p class="font-mono text-lg font-bold text-indigo-700">0.9353</p>
+                  </div>
+                </div>
+
+                <!-- Interactive CTA -->
+                <button id="preview-cta-enter" class="btn-primary w-full py-3 rounded-lg bg-indigo-700 text-white hover:bg-indigo-600 transition-colors font-medium" type="button">
+                  Klik untuk Masuk ke Mode Interaktif Penuh
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Empirical Paradox -->
+    <section id="urgensi" class="py-20 px-6 bg-white border-t border-slate-200" aria-labelledby="urgensi-title">
+      <div class="max-w-[1200px] mx-auto">
+        <header class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">DATA EMPIRIS SPBE</span>
+          <h2 id="urgensi-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">Paradoks Tata Kelola Aplikasi Pemerintah</h2>
+          <p class="text-lg text-slate-600">Berdasarkan data Indeks SPBE 2023 dan audit arsitektur sistem lintas instansi.</p>
+        </header>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow" aria-label="27.000+ aplikasi pemerintah terfragmentasi">
+            <p class="font-mono text-4xl font-bold text-slate-900 mb-2">27.000+</p>
+            <h3 class="text-base font-semibold text-slate-700 mb-2">Aplikasi Pemerintah Terfragmentasi</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Berjalan terfragmentasi di pusat & daerah, menyebabkan duplikasi fungsi dan pemborosan anggaran pemeliharaan tahunan.</p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow" aria-label="38% sistem masih silo">
+            <p class="font-mono text-4xl font-bold text-slate-900 mb-2">38%</p>
+            <h3 class="text-base font-semibold text-slate-700 mb-2">Sistem Masih Silo</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Paradoks instansi berpredikat SPBE "Memuaskan" (Indeks 4,41), namun 38% aplikasinya belum memiliki standar API dan metadata seragam.</p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow" aria-label="40% pengelola non-TI">
+            <p class="font-mono text-4xl font-bold text-slate-900 mb-2">40%</p>
+            <h3 class="text-base font-semibold text-slate-700 mb-2">Pengelola Non-TI</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Kesenjangan kompetensi SDM pengelola SPBE di tengah tingginya resistensi birokrasi terhadap integrasi sistem.</p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow" aria-label="CR = 0.0115 presisi matematis">
+            <p class="font-mono text-3xl font-bold text-slate-900 mb-2">CR = 0.0115</p>
+            <h3 class="text-base font-semibold text-slate-700 mb-2">Presisi Matematis</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">Menghilangkan subjektivitas persetujuan anggaran (<em>clearance</em> TIK) dengan ambang batas konsistensi Saaty CR ≤ 0,10.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Asymmetric Bento Grid - 4 Kriteria -->
+    <section id="arsitektur" class="py-20 px-6 bg-white border-t border-slate-200" aria-labelledby="arsitektur-title">
+      <div class="max-w-[1200px] mx-auto">
+        <header class="max-w-3xl mx-auto mb-16">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">ARSITEKTUR KRITERIA</span>
+          <h2 id="arsitektur-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">Pemetaan Multi-Kriteria Berbasis 6 Domain Arsitektur SIA SPBE</h2>
+        </header>
+
+        <!-- CSS Grid 12-col Bento Layout -->
+        <div class="grid grid-cols-12 gap-6" style="grid-template-columns: repeat(12, 1fr);">
+          <!-- Card 1: C1 - Span 7 (46.58%) -->
+          <article class="col-span-12 lg:col-span-7 bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow relative" aria-labelledby="c1-title">
+            <div class="absolute top-4 right-4 text-right">
+              <p class="font-mono text-sm font-bold text-indigo-700">W = 0.4658</p>
+              <p class="font-mono text-xs text-slate-500">(46.58%)</p>
+            </div>
+            <span class="inline-block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">C1 — Kesiapan Interoperabilitas</span>
+            <h3 id="c1-title" class="text-xl font-semibold text-slate-900 mb-3">API & Metadata</h3>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Domain Aplikasi</span>
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Data & Informasi</span>
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Infrastruktur PDN</span>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">Mengukur kematangan standar RESTful API, keseragaman skema JSON/Metadata Satu Data Indonesia, dan kesiapan konektivitas ke portal nasional.</p>
+            <div class="flex items-center gap-3">
+              <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-medium rounded">REST API Ready</span>
+              <span class="px-2.5 py-1 bg-slate-100 text-slate-500 text-xs font-medium rounded">Monolithic Silo</span>
+            </div>
+          </article>
+
+          <!-- Card 2: C2 - Span 5 (27.71%) -->
+          <article class="col-span-12 lg:col-span-5 bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow relative" aria-labelledby="c2-title">
+            <div class="absolute top-4 right-4 text-right">
+              <p class="font-mono text-sm font-bold text-indigo-700">W = 0.2771</p>
+              <p class="font-mono text-xs text-slate-500">(27.71%)</p>
+            </div>
+            <span class="inline-block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">C2 — Keunikan Fungsi</span>
+            <h3 id="c2-title" class="text-xl font-semibold text-slate-900 mb-3">Bebas Duplikasi</h3>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Domain Proses Bisnis</span>
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Domain Layanan</span>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">Mendeteksi tumpang tindih proses bisnis terhadap Aplikasi Umum Berbagi Pakai nasional (seperti Srikandi atau SP4N-LAPOR!).</p>
+            <p class="text-xs text-slate-500">Referensi: <span class="font-mono">Srikandi</span>, <span class="font-mono">SP4N-LAPOR!</span></p>
+          </article>
+
+          <!-- Card 3: C3 - Span 6 (16.11%) -->
+          <article class="col-span-12 lg:col-span-6 bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow relative" aria-labelledby="c3-title">
+            <div class="absolute top-4 right-4 text-right">
+              <p class="font-mono text-sm font-bold text-indigo-700">W = 0.1611</p>
+              <p class="font-mono text-xs text-slate-500">(16.11%)</p>
+            </div>
+            <span class="inline-block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">C3 — Efisiensi Anggaran</span>
+            <h3 id="c3-title" class="text-xl font-semibold text-slate-900 mb-3">Beban Pemeliharaan</h3>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Tata Kelola</span>
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Perencanaan Anggaran TIK</span>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">Evaluasi rasio biaya operasional server/lisensi tahunan terhadap jumlah pengguna aktif dan manfaat layanan publik (<em>cost-to-impact ratio</em>).</p>
+            <p class="text-xs text-slate-500">Metrik: <span class="font-mono">Cost-to-Impact Ratio</span></p>
+          </article>
+
+          <!-- Card 4: C4 - Span 6 (9.60%) -->
+          <article class="col-span-12 lg:col-span-6 bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-shadow relative" aria-labelledby="c4-title">
+            <div class="absolute top-4 right-4 text-right">
+              <p class="font-mono text-sm font-bold text-indigo-700">W = 0.0960</p>
+              <p class="font-mono text-xs text-slate-500">(9.60%)</p>
+            </div>
+            <span class="inline-block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">C4 — Keamanan Siber & SDM</span>
+            <h3 id="c4-title" class="text-xl font-semibold text-slate-900 mb-3">Kompetensi SDM</h3>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Domain Keamanan Siber</span>
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-xs rounded">Manajemen Perubahan</span>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">Kepatuhan standar audit keamanan CSIRT/BSSN, enkripsi data, dan ketersediaan tim pengelola TI internal.</p>
+            <p class="text-xs text-slate-500">Standar: <span class="font-mono">CSIRT</span>, <span class="font-mono">BSSN</span></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: 3-Tier Policy Decision Matrix -->
+    <section id="kebijakan" class="py-20 px-6 bg-white border-t border-slate-200" aria-labelledby="kebijakan-title">
+      <div class="max-w-[1200px] mx-auto">
+        <header class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">MATRIKS KEBIJAKAN</span>
+          <h2 id="kebijakan-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">Tiga Jalur Rekomendasi Kebijakan Rasionalisasi Portofolio</h2>
+          <p class="text-lg text-slate-600">Setiap aplikasi yang dievaluasi dipetakan secara otomatis ke dalam tiga klasifikasi tindakan berdasarkan Total Skor Prioritas Global (V<sub>k</sub>).</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1: Integrasi (Emerald) -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6 relative overflow-hidden" aria-labelledby="policy-1-title" style="border-top: 3px solid #059669;">
+            <h3 id="policy-1-title" class="text-xs font-semibold uppercase tracking-wider text-emerald-700 mb-3">INTEGRASI KE INA DIGITAL</h3>
+            <p class="text-sm text-slate-600 mb-4">Target Ekosistem: Portal <span class="font-mono">INAku</span> (Masyarakat), <span class="font-mono">INAgov</span> (ASN), & <span class="font-mono">INApas</span> (SSO Digital ID)</p>
+            <div class="mb-4">
+              <p class="font-mono text-4xl font-bold text-slate-900">131</p>
+              <p class="text-sm text-slate-500">Aplikasi (26,2%)</p>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">Aplikasi berkinerja tinggi dengan kesiapan API matang dan fungsi layanan inti.</p>
+            <button class="btn-ghost w-full py-2.5 rounded-lg border border-emerald-300 text-emerald-700 hover:bg-emerald-50 transition-colors text-sm font-medium" type="button" data-target-tab="ranking" data-filter="Integrasi ke INA Digital">
+              Lihat 131 Aplikasi Prioritas →
+            </button>
+          </article>
+
+          <!-- Card 2: Replikasi (Amber) -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6 relative overflow-hidden" aria-labelledby="policy-2-title" style="border-top: 3px solid #D97706;">
+            <h3 id="policy-2-title" class="text-xs font-semibold uppercase tracking-wider text-amber-700 mb-3">REPLIKASI (SHARED SERVICE)</h3>
+            <p class="text-sm text-slate-600 mb-4">Target Ekosistem: Konsolidasi Aplikasi Umum Bagi-Pakai Lintas Unit/Instansi</p>
+            <div class="mb-4">
+              <p class="font-mono text-4xl font-bold text-slate-900">191</p>
+              <p class="text-sm text-slate-500">Aplikasi (38,2%)</p>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">Aplikasi fungsional yang perlu distandarisasi agar bisa dipakai bersama tanpa membangun ulang.</p>
+            <button class="btn-ghost w-full py-2.5 rounded-lg border border-amber-300 text-amber-700 hover:bg-amber-50 transition-colors text-sm font-medium" type="button" data-target-tab="ranking" data-filter="Replikasi (Shared Service)">
+              Lihat 191 Aplikasi Shared Service →
+            </button>
+          </article>
+
+          <!-- Card 3: Decommissioned (Rose) -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6 relative overflow-hidden" aria-labelledby="policy-3-title" style="border-top: 3px solid #E11D48;">
+            <h3 id="policy-3-title" class="text-xs font-semibold uppercase tracking-wider text-rose-700 mb-3">DIHENTIKAN (DECOMMISSIONED)</h3>
+            <p class="text-sm text-slate-600 mb-4">Target Ekosistem: Moratorium Pembangunan & Penghentian Anggaran Pemeliharaan</p>
+            <div class="mb-4">
+              <p class="font-mono text-4xl font-bold text-slate-900">178</p>
+              <p class="text-sm text-slate-500">Aplikasi (35,6%)</p>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">Aplikasi <em>legacy</em> yang berjalan silo, fungsi duplikat, keamanan lemah, dan membebani server.</p>
+            <button class="btn-ghost w-full py-2.5 rounded-lg border border-rose-300 text-rose-700 hover:bg-rose-50 transition-colors text-sm font-medium" type="button" data-target-tab="ranking" data-filter="Dihentikan (Decommissioned)">
+              Audit 178 Aplikasi Redundan →
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Transparent Mathematical Pipeline -->
+    <section id="metodologi" class="py-20 px-6 bg-white border-t border-slate-200" aria-labelledby="metodologi-title">
+      <div class="max-w-[1200px] mx-auto">
+        <header class="text-center max-w-3xl mx-auto mb-16">
+          <span class="inline-block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">METODOLOGI AHP</span>
+          <h2 id="metodologi-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-4">Transparansi Algoritma: Dari Skala Saaty hingga Pemeringkatan Ratusan Aplikasi</h2>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Step 01 -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6" aria-labelledby="step-1-title">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-mono text-3xl font-bold text-indigo-700 shrink-0">01</span>
+              <h3 id="step-1-title" class="text-lg font-semibold text-slate-900 mb-0">Matriks Perbandingan Berpasangan (4 × 4)</h3>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">Input penilaian skala kepentingan Saaty (1–9) dengan perhitungan resiprokal otomatis (a<sub>ji</sub> = 1/a<sub>ij</sub>).</p>
+            <div class="pt-4 border-t border-slate-200 flex items-center justify-center">
+              <svg class="w-10 h-10 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line><line x1="15" y1="15" x2="15" y2="9"></line></svg>
+            </div>
+          </article>
+
+          <!-- Step 02 -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6" aria-labelledby="step-2-title">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-mono text-3xl font-bold text-indigo-700 shrink-0">02</span>
+              <h3 id="step-2-title" class="text-lg font-semibold text-slate-900 mb-0">Normalisasi & Validasi Rasio Konsistensi (CR)</h3>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">Ekstraksi vektor bobot prioritas (W), nilai Eigen maksimum (λ<sub>maks</sub> = 4,0310), CI = 0,0103, dan validasi ketat CR = 0,0115 ≤ 0,10.</p>
+            <div class="pt-4 border-t border-slate-200 flex items-center justify-center">
+              <svg class="w-10 h-10 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+          </article>
+
+          <!-- Step 03 -->
+          <article class="bg-white border border-slate-200 rounded-xl p-6" aria-labelledby="step-3-title">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="font-mono text-3xl font-bold text-indigo-700 shrink-0">03</span>
+              <h3 id="step-3-title" class="text-lg font-semibold text-slate-900 mb-0">Sintesis Skor Portofolio (N = 500 Aplikasi)</h3>
+            </div>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">Perkalian matriks skor teknis ternormalisasi terhadap vektor bobot kriteria W dalam waktu <50 ms di sisi klien (<em>client-side engine</em>).</p>
+            <div class="pt-4 border-t border-slate-200 flex items-center justify-center">
+              <svg class="w-10 h-10 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Bottom Conversion Banner & Footer -->
+    <section class="py-16 px-6 bg-white border-t border-slate-200" aria-labelledby="cta-banner-title">
+      <div class="max-w-[1200px] mx-auto">
+        <!-- CTA Banner -->
+        <div class="bg-white border border-slate-200 rounded-xl p-8 md:p-12 text-center mb-12" aria-labelledby="cta-banner-title">
+          <h2 id="cta-banner-title" class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Siap Mengaudit Portofolio Aplikasi Instansi Anda?</h2>
+          <p class="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">Mulai evaluasi berbasis data dalam hitungan detik. Tidak perlu instalasi — sepenuhnya berjalan di browser.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button id="banner-cta-workspace" class="btn-primary px-6 py-3.5 rounded-lg bg-indigo-700 text-white hover:bg-indigo-600 transition-colors text-base font-medium" type="button">
+              Buka Workspace Evaluasi Sekarang
+            </button>
+            <button id="banner-cta-upload" class="btn-ghost px-6 py-3.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors text-base font-medium" type="button">
+              Unggah CSV Portofolio Baru
+            </button>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-200 pt-10" role="contentinfo">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- Column 1: Product -->
+            <div>
+              <h3 class="text-sm font-semibold text-slate-900 mb-2">SIA-Rasionalisasi v1.0</h3>
+              <p class="text-sm text-slate-500">Enterprise GovTech Decision Intelligence</p>
+            </div>
+
+            <!-- Column 2: Regulasi -->
+            <div>
+              <h3 class="text-sm font-semibold text-slate-900 mb-2">Referensi Regulasi</h3>
+              <ul class="space-y-1 text-sm text-slate-600">
+                <li><a href="https://peraturan.bpk.go.id/Home/Details/185230" target="_blank" rel="noopener" class="hover:text-slate-900 underline underline-offset-2">Perpres No. 132/2022 — SIA SPBE</a></li>
+                <li><a href="https://peraturan.bpk.go.id/Home/Details/239865" target="_blank" rel="noopener" class="hover:text-slate-900 underline underline-offset-2">Perpres No. 82/2023 — GovTech INA Digital</a></li>
+              </ul>
+            </div>
+
+            <!-- Column 3: System Status -->
+            <div class="text-right md:text-left">
+              <h3 class="text-sm font-semibold text-slate-900 mb-2">Status Sistem</h3>
+              <p class="font-mono text-sm text-emerald-700 flex items-center justify-end md:justify-start gap-2">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+                Client-Side AHP Engine Ready (100% Excel Parity)
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-200 text-center">
+            <p class="text-xs text-slate-400">© 2024 SIA-Rasionalisasi. GovTech SPBE Portfolio Decision Intelligence.</p>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </div>
+
+  <!-- Landing Page Logic (minimal, no AHP engine) -->
+  <script>
+    'use strict';
+
+    // --- Landing/Workspace Navigation ---
+    function switchView(view, targetTabId) {
+      if (view === 'workspace') {
+        const url = targetTabId ? 'workspace.html?tab=' + encodeURIComponent(targetTabId) : 'workspace.html';
+        window.location.href = url;
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+    window.switchView = switchView;
+
+    // --- DOM Ready ---
+    document.addEventListener('DOMContentLoaded', () => {
+      // Smooth scroll for anchor links in landing nav
+      document.querySelectorAll('#landing-nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href').slice(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.pushState(null, '', '#' + targetId);
+          }
+        });
+      });
+
+      // Scroll spy for landing nav active state
+      const landingNavLinks = document.querySelectorAll('#landing-nav .landing-nav-link');
+      const landingSections = Array.from(landingNavLinks).map(link =>
+        document.getElementById(link.getAttribute('href').slice(1))
+      ).filter(Boolean);
+
+      const activateNavLink = () => {
+        const scrollY = window.scrollY + 120; // offset for sticky nav
+        let current = landingSections.length - 1;
+        for (let i = 0; i < landingSections.length; i++) {
+          const section = landingSections[i];
+          if (section.offsetTop > scrollY) {
+            current = i > 0 ? i - 1 : 0;
+            break;
+          }
+        }
+        landingNavLinks.forEach((link, idx) => {
+          if (idx === current) {
+            link.classList.add('text-slate-900');
+            link.classList.remove('text-slate-600');
+          } else {
+            link.classList.remove('text-slate-900');
+            link.classList.add('text-slate-600');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', activateNavLink, { passive: true });
+      activateNavLink();
+
+      // --- Landing CTA Buttons ---
+      document.getElementById('landing-cta-primary')?.addEventListener('click', () => {
+        switchView('workspace', 'tab-dashboard');
+      });
+
+      document.getElementById('hero-cta-simulasi')?.addEventListener('click', () => {
+        switchView('workspace', 'tab-dashboard');
+      });
+
+      document.getElementById('hero-cta-kalibrasi')?.addEventListener('click', () => {
+        switchView('workspace', 'tab-ahp');
+      });
+
+      document.getElementById('preview-cta-enter')?.addEventListener('click', () => {
+        switchView('workspace', 'tab-dashboard');
+      });
+
+      // Policy Matrix CTAs (Section 5)
+      document.querySelectorAll('#kebijakan button[data-target-tab]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tab = btn.dataset.targetTab;
+          const filter = btn.dataset.filter;
+          switchView('workspace', tab);
+          // Set filter after view switch (handled by workspace.html initWorkspaceFromURL + setTimeout)
+          setTimeout(() => {
+            const filterSel = document.getElementById('filter-rekomendasi');
+            if (filterSel && filter) {
+              filterSel.value = filter;
+              filterSel.dispatchEvent(new Event('change'));
+            }
+          }, 50);
+        });
+      });
+
+      // Bottom Banner CTAs
+      document.getElementById('banner-cta-workspace')?.addEventListener('click', () => {
+        switchView('workspace', 'tab-dashboard');
+      });
+      document.getElementById('banner-cta-upload')?.addEventListener('click', () => {
+        switchView('workspace', 'tab-dataset');
+        setTimeout(() => {
+          // This won't work cross-page; user needs to click upload manually on workspace
+          // Could use sessionStorage to signal auto-open, but keeping simple for now
+        }, 50);
+      });
+    });
+  </script>
+</body>
+</html>

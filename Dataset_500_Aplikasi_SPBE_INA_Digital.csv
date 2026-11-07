@@ -1,0 +1,501 @@
+Kode_Aplikasi,Nama_Aplikasi,Instansi_Pengelola,Kategori_SIA_SPBE,C1_Interoperabilitas_API,C2_Keunikan_Fungsi,C3_Efisiensi_Anggaran,C4_Keamanan_Siber_SDM
+APP-0001,Aplikasi Keuangan (Pertamina) #1,BUMN Pertamina,Administrasi Pemerintahan (G2G),68,55,67,63
+APP-0002,SIMKinerja (Bandung) #2,Pemkot Bandung,Layanan Publik (G2C),63,69,60,76
+APP-0003,Layanan Tata Ruang (Bandung) #3,Pemkot Bandung,Administrasi Pemerintahan (G2G),76,57,65,52
+APP-0004,SI-Anggaran (Kesehatan) #4,Kementerian Kesehatan,Layanan ASN (G2E),16,47,51,26
+APP-0005,Layanan Audit (Barat) #5,Pemprov Jawa Barat,Administrasi Pemerintahan (G2G),86,79,89,75
+APP-0006,DigiPertanian (BRI) #6,BUMN BRI,Layanan ASN (G2E),94,75,85,91
+APP-0007,SIMTata Ruang (Kominfo) #7,Kementerian Kominfo,Layanan ASN (G2E),64,69,69,77
+APP-0008,Layanan Pendidikan (Barat) #8,Pemprov Jawa Barat,Layanan Publik (G2C),44,32,35,47
+APP-0009,Smart Monitoring (PLN) #9,BUMN PLN,Layanan Publik (G2C),83,85,92,89
+APP-0010,Dashboard Arsip (Pendidikan) #10,Kementerian Pendidikan,Layanan Publik (G2C),70,57,64,65
+APP-0011,Layanan Pendidikan (Purwakarta) #11,Pemkab Purwakarta,Layanan Bisnis/BUMN (G2B),50,39,21,40
+APP-0012,Smart Komunikasi (BUMN) #12,Kementerian BUMN,Layanan Bisnis/BUMN (G2B),38,22,19,54
+APP-0013,SI-Kesehatan (Negeri) #13,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),96,83,77,97
+APP-0014,DigiSosial (Negeri) #14,Kementerian Dalam Negeri,Layanan ASN (G2E),98,92,74,81
+APP-0015,Dashboard Aset (Barat) #15,Pemprov Jawa Barat,Layanan Publik (G2C),50,10,35,41
+APP-0016,e-Audit (Pertamina) #16,BUMN Pertamina,Layanan Publik (G2C),81,89,70,85
+APP-0017,DigiMonitoring (PLN) #17,BUMN PLN,Layanan Bisnis/BUMN (G2B),87,82,92,79
+APP-0018,DigiPertanian (BRI) #18,BUMN BRI,Layanan Publik (G2C),66,73,51,64
+APP-0019,e-Keuangan (Cimahi) #19,Pemkot Cimahi,Administrasi Pemerintahan (G2G),66,48,66,71
+APP-0020,Dashboard Pariwisata (BUMN) #20,Kementerian BUMN,Administrasi Pemerintahan (G2G),37,29,38,49
+APP-0021,e-Kinerja (Bekasi) #21,Pemkab Bekasi,Layanan Bisnis/BUMN (G2B),77,56,75,73
+APP-0022,Sistem Logistik (BRI) #22,BUMN BRI,Administrasi Pemerintahan (G2G),50,14,23,47
+APP-0023,Layanan Aset (Peruri) #23,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),28,38,45,21
+APP-0024,Sistem Kesehatan (Pendidikan) #24,Kementerian Pendidikan,Administrasi Pemerintahan (G2G),93,84,75,77
+APP-0025,DigiMitigasi (Bekasi) #25,Pemkab Bekasi,Administrasi Pemerintahan (G2G),94,91,93,76
+APP-0026,e-Lingkungan (BUMN) #26,Kementerian BUMN,Layanan ASN (G2E),63,71,67,58
+APP-0027,DigiLingkungan (Purwakarta) #27,Pemkab Purwakarta,Layanan Publik (G2C),28,31,44,50
+APP-0028,Smart Mitigasi (Peruri) #28,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),39,33,31,35
+APP-0029,e-Mitigasi (BUMN) #29,Kementerian BUMN,Layanan Publik (G2C),65,59,64,64
+APP-0030,Layanan Sosial (BUMN) #30,Kementerian BUMN,Administrasi Pemerintahan (G2G),59,72,78,54
+APP-0031,Sistem Kesehatan (PANRB) #31,Kementerian PANRB,Layanan Publik (G2C),27,14,36,44
+APP-0032,DigiAnggaran (PANRB) #32,Kementerian PANRB,Administrasi Pemerintahan (G2G),34,26,15,37
+APP-0033,Dashboard Monitoring (Jakarta) #33,Pemprov DKI Jakarta,Layanan Publik (G2C),17,30,23,39
+APP-0034,Smart Pertanian (BRI) #34,BUMN BRI,Layanan Bisnis/BUMN (G2B),67,53,65,62
+APP-0035,Sistem Informasi (Negeri) #35,Kementerian Dalam Negeri,Layanan Publik (G2C),16,41,44,31
+APP-0036,e-Aset (Negeri) #36,Kementerian Dalam Negeri,Layanan Bisnis/BUMN (G2B),41,38,44,30
+APP-0037,DigiMonitoring (PLN) #37,BUMN PLN,Layanan ASN (G2E),80,84,90,81
+APP-0038,SIMRetribusi (Telkom) #38,BUMN Telkom,Layanan Bisnis/BUMN (G2B),79,87,78,81
+APP-0039,Portal Lingkungan (Negeri) #39,Kementerian Dalam Negeri,Layanan ASN (G2E),87,91,80,81
+APP-0040,SIMAset (Pertamina) #40,BUMN Pertamina,Layanan Bisnis/BUMN (G2B),35,10,41,32
+APP-0041,e-Kepegawaian (Barat) #41,Pemprov Jawa Barat,Administrasi Pemerintahan (G2G),67,55,51,58
+APP-0042,Dashboard Aset (Pertamina) #42,BUMN Pertamina,Layanan Publik (G2C),32,38,29,29
+APP-0043,Layanan Arsip (Bekasi) #43,Pemkab Bekasi,Layanan ASN (G2E),58,55,72,77
+APP-0044,SIMArsip (Bandung) #44,Pemkot Bandung,Layanan Bisnis/BUMN (G2B),86,81,75,87
+APP-0045,Sistem Anggaran (Cimahi) #45,Pemkot Cimahi,Layanan Bisnis/BUMN (G2B),30,23,46,41
+APP-0046,Portal Sosial (Kesehatan) #46,Kementerian Kesehatan,Administrasi Pemerintahan (G2G),29,25,25,50
+APP-0047,Aplikasi Kinerja (BRI) #47,BUMN BRI,Layanan Publik (G2C),56,49,67,76
+APP-0048,Layanan Arsip (BUMN) #48,Kementerian BUMN,Layanan Publik (G2C),34,25,48,46
+APP-0049,SI-Pengaduan (Barat) #49,Pemprov Jawa Barat,Layanan Bisnis/BUMN (G2B),44,40,45,43
+APP-0050,Smart Logistik (BUMN) #50,Kementerian BUMN,Administrasi Pemerintahan (G2G),24,21,28,30
+APP-0051,Smart Statistik (Kesehatan) #51,Kementerian Kesehatan,Layanan Bisnis/BUMN (G2B),78,76,93,86
+APP-0052,Dashboard Statistik (Mandiri) #52,BUMN Mandiri,Layanan ASN (G2E),80,80,72,96
+APP-0053,SIMPelayanan (Negeri) #53,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),66,70,62,75
+APP-0054,Dashboard Arsip (Kesehatan) #54,Kementerian Kesehatan,Administrasi Pemerintahan (G2G),20,40,47,33
+APP-0055,Smart Pelaporan (Cimahi) #55,Pemkot Cimahi,Layanan ASN (G2E),74,59,58,58
+APP-0056,Smart Pariwisata (Keuangan) #56,Kementerian Keuangan,Administrasi Pemerintahan (G2G),42,22,37,20
+APP-0057,DigiPerhubungan (Barat) #57,Pemprov Jawa Barat,Layanan Publik (G2C),59,53,50,76
+APP-0058,Sistem Pajak (Mandiri) #58,BUMN Mandiri,Layanan ASN (G2E),89,81,92,93
+APP-0059,SI-Perizinan (Kesehatan) #59,Kementerian Kesehatan,Layanan ASN (G2E),98,76,85,91
+APP-0060,Aplikasi Keuangan (Pertamina) #60,BUMN Pertamina,Layanan Publik (G2C),79,77,90,78
+APP-0061,DigiPertanian (Jakarta) #61,Pemprov DKI Jakarta,Layanan Publik (G2C),57,56,54,53
+APP-0062,SI-Pengadaan (Negeri) #62,Kementerian Dalam Negeri,Layanan ASN (G2E),80,83,87,76
+APP-0063,Dashboard Monitoring (Bekasi) #63,Pemkab Bekasi,Layanan Bisnis/BUMN (G2B),15,22,38,26
+APP-0064,Portal Sosial (Negeri) #64,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),84,91,82,77
+APP-0065,Smart Pertanian (Cimahi) #65,Pemkot Cimahi,Layanan Publik (G2C),61,69,76,70
+APP-0066,SI-Pelayanan (PANRB) #66,Kementerian PANRB,Layanan Publik (G2C),65,59,52,55
+APP-0067,Dashboard Pelayanan (Hukum) #67,Kementerian Hukum,Layanan Publik (G2C),95,89,82,75
+APP-0068,Sistem Pelayanan (Pendidikan) #68,Kementerian Pendidikan,Layanan Bisnis/BUMN (G2B),27,12,32,33
+APP-0069,e-Pelaporan (Barat) #69,Pemprov Jawa Barat,Administrasi Pemerintahan (G2G),61,63,66,72
+APP-0070,Layanan Retribusi (Kesehatan) #70,Kementerian Kesehatan,Layanan Publik (G2C),64,60,68,60
+APP-0071,Smart Monitoring (Hukum) #71,Kementerian Hukum,Layanan Publik (G2C),57,59,72,71
+APP-0072,SIMRetribusi (Negeri) #72,Kementerian Dalam Negeri,Layanan ASN (G2E),47,33,44,32
+APP-0073,e-Kepegawaian (Bekasi) #73,Pemkab Bekasi,Administrasi Pemerintahan (G2G),63,47,53,52
+APP-0074,Layanan Kesehatan (PLN) #74,BUMN PLN,Layanan ASN (G2E),76,67,54,77
+APP-0075,SIMLogistik (Negeri) #75,Kementerian Dalam Negeri,Layanan ASN (G2E),20,11,51,46
+APP-0076,Sistem Pajak (Keuangan) #76,Kementerian Keuangan,Administrasi Pemerintahan (G2G),44,39,31,40
+APP-0077,Sistem Hukum (BUMN) #77,Kementerian BUMN,Layanan Publik (G2C),66,60,72,69
+APP-0078,Aplikasi Anggaran (Kesehatan) #78,Kementerian Kesehatan,Layanan Publik (G2C),69,56,68,69
+APP-0079,SI-Perhubungan (BRI) #79,BUMN BRI,Administrasi Pemerintahan (G2G),59,64,66,58
+APP-0080,DigiStatistik (Pertamina) #80,BUMN Pertamina,Administrasi Pemerintahan (G2G),97,79,91,88
+APP-0081,SI-Pelayanan (Bekasi) #81,Pemkab Bekasi,Layanan Publik (G2C),50,57,78,60
+APP-0082,e-Tata Ruang (Jakarta) #82,Pemprov DKI Jakarta,Layanan Bisnis/BUMN (G2B),71,71,74,61
+APP-0083,Dashboard Pertanian (Hukum) #83,Kementerian Hukum,Administrasi Pemerintahan (G2G),86,93,71,75
+APP-0084,Sistem Pertanian (Mandiri) #84,BUMN Mandiri,Layanan Publik (G2C),71,51,58,62
+APP-0085,SIMPajak (PANRB) #85,Kementerian PANRB,Layanan Bisnis/BUMN (G2B),50,16,46,39
+APP-0086,e-Arsip (Pertamina) #86,BUMN Pertamina,Layanan Publik (G2C),77,45,75,58
+APP-0087,Smart Retribusi (Pendidikan) #87,Kementerian Pendidikan,Administrasi Pemerintahan (G2G),55,46,69,50
+APP-0088,Layanan Pajak (Keuangan) #88,Kementerian Keuangan,Layanan Publik (G2C),78,54,65,77
+APP-0089,Layanan Lingkungan (Bekasi) #89,Pemkab Bekasi,Administrasi Pemerintahan (G2G),54,71,66,74
+APP-0090,SI-Komunikasi (Hukum) #90,Kementerian Hukum,Layanan Publik (G2C),94,83,72,89
+APP-0091,Portal Keuangan (Purwakarta) #91,Pemkab Purwakarta,Layanan Publik (G2C),91,97,81,89
+APP-0092,DigiKeuangan (BRI) #92,BUMN BRI,Administrasi Pemerintahan (G2G),35,46,46,48
+APP-0093,SIMSosial (Cimahi) #93,Pemkot Cimahi,Layanan Bisnis/BUMN (G2B),50,64,67,76
+APP-0094,DigiAset (PANRB) #94,Kementerian PANRB,Layanan Publik (G2C),51,47,69,66
+APP-0095,Aplikasi Mitigasi (Hukum) #95,Kementerian Hukum,Layanan Bisnis/BUMN (G2B),71,48,50,76
+APP-0096,e-Pendidikan (PLN) #96,BUMN PLN,Administrasi Pemerintahan (G2G),81,88,90,78
+APP-0097,e-Retribusi (Purwakarta) #97,Pemkab Purwakarta,Layanan Publik (G2C),20,34,38,42
+APP-0098,SIMInformasi (Cimahi) #98,Pemkot Cimahi,Layanan ASN (G2E),24,31,32,34
+APP-0099,DigiPelaporan (Negeri) #99,Kementerian Dalam Negeri,Layanan ASN (G2E),69,74,60,60
+APP-0100,Aplikasi Kepegawaian (Telkom) #100,BUMN Telkom,Layanan Publik (G2C),39,38,31,46
+APP-0101,Dashboard Aset (PLN) #101,BUMN PLN,Layanan Publik (G2C),78,54,71,69
+APP-0102,Smart Pajak (Telkom) #102,BUMN Telkom,Administrasi Pemerintahan (G2G),29,19,45,53
+APP-0103,SI-Anggaran (BUMN) #103,Kementerian BUMN,Layanan Publik (G2C),55,74,79,72
+APP-0104,SIMMonitoring (Bekasi) #104,Pemkab Bekasi,Administrasi Pemerintahan (G2G),67,71,62,68
+APP-0105,Sistem Pariwisata (Barat) #105,Pemprov Jawa Barat,Layanan Publik (G2C),53,59,51,55
+APP-0106,Sistem Sosial (Hukum) #106,Kementerian Hukum,Administrasi Pemerintahan (G2G),62,50,59,77
+APP-0107,DigiTata Ruang (PLN) #107,BUMN PLN,Administrasi Pemerintahan (G2G),54,75,55,52
+APP-0108,SIMPerhubungan (Bandung) #108,Pemkot Bandung,Layanan ASN (G2E),64,57,58,60
+APP-0109,Sistem Pengaduan (Jakarta) #109,Pemprov DKI Jakarta,Layanan ASN (G2E),31,15,26,52
+APP-0110,SI-Kependudukan (Kominfo) #110,Kementerian Kominfo,Layanan Publik (G2C),34,35,25,49
+APP-0111,Portal Monitoring (Negeri) #111,Kementerian Dalam Negeri,Layanan Publik (G2C),84,75,80,87
+APP-0112,Smart Tata Ruang (Bandung) #112,Pemkot Bandung,Administrasi Pemerintahan (G2G),75,64,78,75
+APP-0113,Smart Statistik (Negeri) #113,Kementerian Dalam Negeri,Layanan ASN (G2E),28,43,48,22
+APP-0114,Smart Perhubungan (PANRB) #114,Kementerian PANRB,Administrasi Pemerintahan (G2G),64,54,51,55
+APP-0115,Sistem Aset (Negeri) #115,Kementerian Dalam Negeri,Layanan Publik (G2C),65,63,75,62
+APP-0116,SI-Pengaduan (BUMN) #116,Kementerian BUMN,Layanan Bisnis/BUMN (G2B),94,78,88,77
+APP-0117,Dashboard Pendidikan (Barat) #117,Pemprov Jawa Barat,Layanan Publik (G2C),37,31,25,32
+APP-0118,Layanan Perizinan (PANRB) #118,Kementerian PANRB,Administrasi Pemerintahan (G2G),87,87,82,93
+APP-0119,e-Tata Ruang (Kominfo) #119,Kementerian Kominfo,Administrasi Pemerintahan (G2G),96,75,79,83
+APP-0120,Aplikasi Pengaduan (Jakarta) #120,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),51,48,52,67
+APP-0121,Smart Statistik (Pertamina) #121,BUMN Pertamina,Layanan Bisnis/BUMN (G2B),82,91,74,82
+APP-0122,Portal Monitoring (Jakarta) #122,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),53,62,63,71
+APP-0123,SI-Pengadaan (Peruri) #123,BUMN Perum Peruri,Layanan ASN (G2E),29,12,29,36
+APP-0124,Dashboard Keuangan (BRI) #124,BUMN BRI,Layanan Publik (G2C),60,50,66,56
+APP-0125,SI-Kesehatan (Purwakarta) #125,Pemkab Purwakarta,Administrasi Pemerintahan (G2G),24,28,43,30
+APP-0126,Portal Perhubungan (Hukum) #126,Kementerian Hukum,Administrasi Pemerintahan (G2G),16,10,31,40
+APP-0127,Sistem Aset (Kominfo) #127,Kementerian Kominfo,Layanan Bisnis/BUMN (G2B),43,27,41,30
+APP-0128,SI-Lingkungan (Keuangan) #128,Kementerian Keuangan,Layanan Publik (G2C),78,53,53,53
+APP-0129,DigiPengadaan (Mandiri) #129,BUMN Mandiri,Layanan Bisnis/BUMN (G2B),28,28,30,54
+APP-0130,Portal Pengaduan (Kominfo) #130,Kementerian Kominfo,Administrasi Pemerintahan (G2G),88,78,88,91
+APP-0131,SI-Pajak (Kesehatan) #131,Kementerian Kesehatan,Layanan Publik (G2C),85,95,87,78
+APP-0132,SI-Retribusi (PLN) #132,BUMN PLN,Layanan Publik (G2C),93,80,76,78
+APP-0133,DigiTata Ruang (Telkom) #133,BUMN Telkom,Layanan Publik (G2C),46,26,34,42
+APP-0134,Portal Kesehatan (BRI) #134,BUMN BRI,Layanan Publik (G2C),78,86,81,86
+APP-0135,e-Pelaporan (Bekasi) #135,Pemkab Bekasi,Layanan ASN (G2E),81,94,77,81
+APP-0136,SI-Perizinan (Kominfo) #136,Kementerian Kominfo,Administrasi Pemerintahan (G2G),25,40,22,44
+APP-0137,Smart Pelaporan (Pendidikan) #137,Kementerian Pendidikan,Administrasi Pemerintahan (G2G),83,75,90,80
+APP-0138,Aplikasi Pengaduan (Pendidikan) #138,Kementerian Pendidikan,Layanan ASN (G2E),79,81,70,87
+APP-0139,Sistem Kepegawaian (Kesehatan) #139,Kementerian Kesehatan,Layanan Publik (G2C),90,77,77,91
+APP-0140,SIMKepegawaian (Kesehatan) #140,Kementerian Kesehatan,Administrasi Pemerintahan (G2G),80,92,78,94
+APP-0141,SIMPengaduan (Jakarta) #141,Pemprov DKI Jakarta,Layanan Publik (G2C),40,34,38,38
+APP-0142,SIMAudit (BRI) #142,BUMN BRI,Layanan Publik (G2C),99,89,82,86
+APP-0143,SIMAset (Negeri) #143,Kementerian Dalam Negeri,Layanan Publik (G2C),60,62,70,77
+APP-0144,SIMArsip (BRI) #144,BUMN BRI,Layanan ASN (G2E),75,73,52,75
+APP-0145,Dashboard Arsip (Kominfo) #145,Kementerian Kominfo,Layanan Publik (G2C),50,19,37,51
+APP-0146,Portal Pertanian (Hukum) #146,Kementerian Hukum,Layanan Bisnis/BUMN (G2B),23,36,37,46
+APP-0147,Aplikasi Pajak (Pertamina) #147,BUMN Pertamina,Layanan ASN (G2E),91,92,94,91
+APP-0148,e-Perizinan (Telkom) #148,BUMN Telkom,Layanan ASN (G2E),38,37,31,36
+APP-0149,Aplikasi Retribusi (Mandiri) #149,BUMN Mandiri,Administrasi Pemerintahan (G2G),31,45,15,22
+APP-0150,Smart Pajak (PANRB) #150,Kementerian PANRB,Administrasi Pemerintahan (G2G),69,60,79,73
+APP-0151,Dashboard Logistik (Mandiri) #151,BUMN Mandiri,Layanan Bisnis/BUMN (G2B),98,87,87,76
+APP-0152,Dashboard Kepegawaian (Peruri) #152,BUMN Perum Peruri,Layanan Publik (G2C),76,57,77,60
+APP-0153,Layanan Pengaduan (Cimahi) #153,Pemkot Cimahi,Layanan ASN (G2E),55,73,55,65
+APP-0154,SI-Perizinan (Mandiri) #154,BUMN Mandiri,Layanan Bisnis/BUMN (G2B),26,14,19,21
+APP-0155,Portal Retribusi (Mandiri) #155,BUMN Mandiri,Layanan Publik (G2C),62,45,69,70
+APP-0156,Smart Pariwisata (Kesehatan) #156,Kementerian Kesehatan,Layanan ASN (G2E),51,42,36,38
+APP-0157,Aplikasi Pariwisata (Kominfo) #157,Kementerian Kominfo,Layanan ASN (G2E),76,51,76,71
+APP-0158,DigiLogistik (Bandung) #158,Pemkot Bandung,Administrasi Pemerintahan (G2G),59,72,64,59
+APP-0159,Aplikasi Pengadaan (Keuangan) #159,Kementerian Keuangan,Administrasi Pemerintahan (G2G),62,46,70,65
+APP-0160,SI-Monitoring (Peruri) #160,BUMN Perum Peruri,Layanan ASN (G2E),72,67,56,55
+APP-0161,Sistem Pengaduan (Kominfo) #161,Kementerian Kominfo,Layanan Publik (G2C),82,78,85,78
+APP-0162,DigiKinerja (Jakarta) #162,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),98,90,90,88
+APP-0163,SIMArsip (Kominfo) #163,Kementerian Kominfo,Layanan ASN (G2E),70,67,57,76
+APP-0164,Smart Pelayanan (Pendidikan) #164,Kementerian Pendidikan,Administrasi Pemerintahan (G2G),38,12,51,28
+APP-0165,Smart Pendidikan (Negeri) #165,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),21,32,20,28
+APP-0166,Dashboard Kependudukan (Mandiri) #166,BUMN Mandiri,Administrasi Pemerintahan (G2G),91,80,94,80
+APP-0167,Aplikasi Pendidikan (Keuangan) #167,Kementerian Keuangan,Layanan Publik (G2C),85,89,77,86
+APP-0168,Layanan Sosial (Kesehatan) #168,Kementerian Kesehatan,Layanan Publik (G2C),75,70,71,67
+APP-0169,Portal Hukum (BUMN) #169,Kementerian BUMN,Administrasi Pemerintahan (G2G),22,28,45,24
+APP-0170,Aplikasi Kepegawaian (Pertamina) #170,BUMN Pertamina,Layanan Publik (G2C),50,16,36,23
+APP-0171,Layanan Pelayanan (Bekasi) #171,Pemkab Bekasi,Administrasi Pemerintahan (G2G),48,31,37,24
+APP-0172,DigiPerhubungan (Purwakarta) #172,Pemkab Purwakarta,Layanan Publik (G2C),20,21,16,44
+APP-0173,Sistem Pariwisata (PANRB) #173,Kementerian PANRB,Layanan ASN (G2E),60,75,65,56
+APP-0174,Dashboard Retribusi (Barat) #174,Pemprov Jawa Barat,Layanan ASN (G2E),65,65,68,70
+APP-0175,Aplikasi Kinerja (Telkom) #175,BUMN Telkom,Administrasi Pemerintahan (G2G),53,64,58,66
+APP-0176,e-Logistik (Kesehatan) #176,Kementerian Kesehatan,Administrasi Pemerintahan (G2G),41,28,39,40
+APP-0177,Smart Logistik (Negeri) #177,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),50,35,26,39
+APP-0178,Smart Pelayanan (Barat) #178,Pemprov Jawa Barat,Layanan ASN (G2E),46,33,15,37
+APP-0179,DigiInformasi (Bandung) #179,Pemkot Bandung,Administrasi Pemerintahan (G2G),87,93,86,87
+APP-0180,Aplikasi Kepegawaian (PANRB) #180,Kementerian PANRB,Layanan Publik (G2C),78,72,51,58
+APP-0181,DigiKeuangan (Bandung) #181,Pemkot Bandung,Layanan Publik (G2C),42,35,17,26
+APP-0182,Portal Statistik (Kominfo) #182,Kementerian Kominfo,Layanan Publik (G2C),62,71,73,63
+APP-0183,SI-Pengaduan (Cimahi) #183,Pemkot Cimahi,Layanan Bisnis/BUMN (G2B),54,45,70,70
+APP-0184,Smart Pengaduan (Bekasi) #184,Pemkab Bekasi,Administrasi Pemerintahan (G2G),87,92,75,78
+APP-0185,Dashboard Monitoring (Jakarta) #185,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),67,52,70,56
+APP-0186,Dashboard Komunikasi (BUMN) #186,Kementerian BUMN,Administrasi Pemerintahan (G2G),47,12,25,53
+APP-0187,Portal Keuangan (Pertamina) #187,BUMN Pertamina,Layanan ASN (G2E),73,45,63,72
+APP-0188,e-Pajak (Cimahi) #188,Pemkot Cimahi,Layanan Publik (G2C),18,23,15,26
+APP-0189,DigiKinerja (PANRB) #189,Kementerian PANRB,Layanan Bisnis/BUMN (G2B),64,74,66,75
+APP-0190,Portal Pelayanan (Cimahi) #190,Pemkot Cimahi,Layanan ASN (G2E),56,65,72,61
+APP-0191,Aplikasi Informasi (Pertamina) #191,BUMN Pertamina,Layanan Publik (G2C),99,86,93,85
+APP-0192,SIMLingkungan (Bandung) #192,Pemkot Bandung,Layanan ASN (G2E),32,32,50,52
+APP-0193,DigiKepegawaian (Telkom) #193,BUMN Telkom,Administrasi Pemerintahan (G2G),30,19,35,42
+APP-0194,e-Informasi (Keuangan) #194,Kementerian Keuangan,Layanan Publik (G2C),99,86,89,90
+APP-0195,Portal Pajak (Bekasi) #195,Pemkab Bekasi,Layanan ASN (G2E),68,60,68,53
+APP-0196,Dashboard Kepegawaian (PANRB) #196,Kementerian PANRB,Layanan Publik (G2C),19,32,37,49
+APP-0197,SIMInformasi (Purwakarta) #197,Pemkab Purwakarta,Layanan ASN (G2E),64,48,52,50
+APP-0198,SI-Kependudukan (Keuangan) #198,Kementerian Keuangan,Administrasi Pemerintahan (G2G),50,72,78,75
+APP-0199,Layanan Perizinan (PLN) #199,BUMN PLN,Administrasi Pemerintahan (G2G),85,89,74,90
+APP-0200,SIMTata Ruang (Pertamina) #200,BUMN Pertamina,Layanan Publik (G2C),44,19,17,25
+APP-0201,Dashboard Pajak (Peruri) #201,BUMN Perum Peruri,Layanan ASN (G2E),96,81,75,84
+APP-0202,Portal Hukum (PLN) #202,BUMN PLN,Layanan Bisnis/BUMN (G2B),51,29,30,39
+APP-0203,Dashboard Hukum (Telkom) #203,BUMN Telkom,Administrasi Pemerintahan (G2G),98,80,84,95
+APP-0204,Layanan Pengaduan (Kominfo) #204,Kementerian Kominfo,Layanan ASN (G2E),28,23,16,37
+APP-0205,Smart Pelaporan (Mandiri) #205,BUMN Mandiri,Layanan Bisnis/BUMN (G2B),74,66,58,51
+APP-0206,Smart Mitigasi (Pendidikan) #206,Kementerian Pendidikan,Layanan ASN (G2E),95,95,74,97
+APP-0207,Smart Perhubungan (Cimahi) #207,Pemkot Cimahi,Layanan Publik (G2C),32,12,28,41
+APP-0208,Layanan Perizinan (Cimahi) #208,Pemkot Cimahi,Layanan Bisnis/BUMN (G2B),78,84,80,76
+APP-0209,Sistem Kesehatan (Hukum) #209,Kementerian Hukum,Layanan Publik (G2C),63,73,66,55
+APP-0210,Aplikasi Informasi (BUMN) #210,Kementerian BUMN,Administrasi Pemerintahan (G2G),94,76,74,93
+APP-0211,DigiLingkungan (Hukum) #211,Kementerian Hukum,Layanan Publik (G2C),77,73,76,51
+APP-0212,Dashboard Sosial (Bekasi) #212,Pemkab Bekasi,Layanan Bisnis/BUMN (G2B),41,33,48,40
+APP-0213,DigiKepegawaian (Bekasi) #213,Pemkab Bekasi,Layanan Bisnis/BUMN (G2B),61,65,72,70
+APP-0214,Sistem Kependudukan (Mandiri) #214,BUMN Mandiri,Layanan Publik (G2C),71,72,58,51
+APP-0215,Portal Pajak (Keuangan) #215,Kementerian Keuangan,Administrasi Pemerintahan (G2G),63,56,76,52
+APP-0216,Aplikasi Komunikasi (Pertamina) #216,BUMN Pertamina,Layanan Bisnis/BUMN (G2B),76,73,74,77
+APP-0217,Sistem Pengadaan (Keuangan) #217,Kementerian Keuangan,Layanan Publik (G2C),82,81,86,77
+APP-0218,Smart Kesehatan (Purwakarta) #218,Pemkab Purwakarta,Administrasi Pemerintahan (G2G),41,46,22,40
+APP-0219,Portal Retribusi (Jakarta) #219,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),32,24,20,26
+APP-0220,SI-Statistik (Jakarta) #220,Pemprov DKI Jakarta,Layanan Bisnis/BUMN (G2B),25,28,16,53
+APP-0221,Dashboard Kepegawaian (Mandiri) #221,BUMN Mandiri,Layanan Bisnis/BUMN (G2B),95,90,88,79
+APP-0222,SI-Kepegawaian (Peruri) #222,BUMN Perum Peruri,Layanan ASN (G2E),72,64,51,70
+APP-0223,Aplikasi Keuangan (BUMN) #223,Kementerian BUMN,Administrasi Pemerintahan (G2G),78,85,85,83
+APP-0224,Smart Aset (Barat) #224,Pemprov Jawa Barat,Layanan Publik (G2C),31,47,36,48
+APP-0225,Smart Pengadaan (Jakarta) #225,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),84,83,90,94
+APP-0226,Dashboard Mitigasi (Telkom) #226,BUMN Telkom,Administrasi Pemerintahan (G2G),40,29,21,20
+APP-0227,DigiTata Ruang (Purwakarta) #227,Pemkab Purwakarta,Administrasi Pemerintahan (G2G),34,20,17,25
+APP-0228,Layanan Pertanian (Peruri) #228,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),71,75,76,65
+APP-0229,Sistem Lingkungan (Pertamina) #229,BUMN Pertamina,Layanan Publik (G2C),41,38,41,52
+APP-0230,e-Kesehatan (Telkom) #230,BUMN Telkom,Layanan ASN (G2E),84,83,87,89
+APP-0231,DigiLogistik (Bekasi) #231,Pemkab Bekasi,Layanan Publik (G2C),92,90,85,81
+APP-0232,DigiPerhubungan (Keuangan) #232,Kementerian Keuangan,Layanan Publik (G2C),74,51,77,74
+APP-0233,Portal Lingkungan (Hukum) #233,Kementerian Hukum,Administrasi Pemerintahan (G2G),66,75,59,51
+APP-0234,Layanan Perizinan (Jakarta) #234,Pemprov DKI Jakarta,Layanan Bisnis/BUMN (G2B),38,23,36,49
+APP-0235,Smart Statistik (Barat) #235,Pemprov Jawa Barat,Layanan Bisnis/BUMN (G2B),40,26,41,27
+APP-0236,Sistem Kinerja (Negeri) #236,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),95,78,85,91
+APP-0237,Portal Logistik (Bandung) #237,Pemkot Bandung,Administrasi Pemerintahan (G2G),57,69,50,75
+APP-0238,Aplikasi Kepegawaian (Jakarta) #238,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),84,97,77,84
+APP-0239,Aplikasi Pengadaan (Hukum) #239,Kementerian Hukum,Layanan ASN (G2E),23,12,18,43
+APP-0240,Sistem Lingkungan (Kesehatan) #240,Kementerian Kesehatan,Layanan Publik (G2C),77,45,76,69
+APP-0241,Layanan Kinerja (Jakarta) #241,Pemprov DKI Jakarta,Layanan ASN (G2E),75,58,71,52
+APP-0242,Dashboard Pengadaan (Jakarta) #242,Pemprov DKI Jakarta,Layanan Bisnis/BUMN (G2B),77,49,53,77
+APP-0243,Dashboard Pengadaan (Hukum) #243,Kementerian Hukum,Layanan Publik (G2C),85,96,85,83
+APP-0244,DigiInformasi (Peruri) #244,BUMN Perum Peruri,Layanan Publik (G2C),51,57,71,71
+APP-0245,e-Pelaporan (Hukum) #245,Kementerian Hukum,Administrasi Pemerintahan (G2G),24,20,19,49
+APP-0246,DigiInformasi (Bandung) #246,Pemkot Bandung,Layanan Bisnis/BUMN (G2B),16,24,28,35
+APP-0247,e-Pengaduan (Cimahi) #247,Pemkot Cimahi,Administrasi Pemerintahan (G2G),56,69,58,50
+APP-0248,Sistem Sosial (BUMN) #248,Kementerian BUMN,Administrasi Pemerintahan (G2G),80,87,92,84
+APP-0249,Sistem Komunikasi (Telkom) #249,BUMN Telkom,Layanan ASN (G2E),47,28,50,32
+APP-0250,Smart Keuangan (Jakarta) #250,Pemprov DKI Jakarta,Layanan Publik (G2C),25,12,26,47
+APP-0251,e-Pelaporan (Keuangan) #251,Kementerian Keuangan,Layanan ASN (G2E),73,49,51,50
+APP-0252,DigiKepegawaian (BUMN) #252,Kementerian BUMN,Layanan Publik (G2C),47,38,20,40
+APP-0253,DigiPelayanan (BUMN) #253,Kementerian BUMN,Layanan ASN (G2E),27,38,18,20
+APP-0254,e-Mitigasi (Pendidikan) #254,Kementerian Pendidikan,Administrasi Pemerintahan (G2G),82,84,87,78
+APP-0255,Layanan Pajak (Kesehatan) #255,Kementerian Kesehatan,Layanan Publik (G2C),95,81,82,80
+APP-0256,Aplikasi Aset (Hukum) #256,Kementerian Hukum,Layanan Publik (G2C),99,92,71,89
+APP-0257,Dashboard Informasi (BRI) #257,BUMN BRI,Layanan Publik (G2C),19,10,23,35
+APP-0258,Dashboard Pelayanan (Keuangan) #258,Kementerian Keuangan,Layanan Bisnis/BUMN (G2B),38,12,50,31
+APP-0259,Sistem Statistik (Mandiri) #259,BUMN Mandiri,Layanan Bisnis/BUMN (G2B),75,50,51,68
+APP-0260,Dashboard Pelayanan (Jakarta) #260,Pemprov DKI Jakarta,Layanan Publik (G2C),77,51,68,73
+APP-0261,SIMMitigasi (Kesehatan) #261,Kementerian Kesehatan,Layanan ASN (G2E),60,54,52,57
+APP-0262,DigiLingkungan (Bandung) #262,Pemkot Bandung,Layanan ASN (G2E),79,75,88,94
+APP-0263,SI-Logistik (PLN) #263,BUMN PLN,Layanan Publik (G2C),33,22,24,29
+APP-0264,Portal Pariwisata (PANRB) #264,Kementerian PANRB,Layanan Publik (G2C),43,45,16,31
+APP-0265,DigiPengadaan (Barat) #265,Pemprov Jawa Barat,Administrasi Pemerintahan (G2G),17,42,42,39
+APP-0266,SIMKesehatan (Mandiri) #266,BUMN Mandiri,Layanan ASN (G2E),71,70,62,76
+APP-0267,Dashboard Keuangan (Bekasi) #267,Pemkab Bekasi,Layanan Publik (G2C),53,57,65,53
+APP-0268,e-Statistik (Peruri) #268,BUMN Perum Peruri,Layanan Publik (G2C),98,82,70,83
+APP-0269,Aplikasi Perizinan (Pendidikan) #269,Kementerian Pendidikan,Layanan Publik (G2C),95,91,84,89
+APP-0270,Aplikasi Pendidikan (Kominfo) #270,Kementerian Kominfo,Layanan Publik (G2C),43,35,34,43
+APP-0271,Sistem Pengadaan (BUMN) #271,Kementerian BUMN,Layanan Publik (G2C),76,59,74,57
+APP-0272,SIMMonitoring (Hukum) #272,Kementerian Hukum,Layanan Publik (G2C),74,59,77,68
+APP-0273,Sistem Perizinan (Pendidikan) #273,Kementerian Pendidikan,Layanan ASN (G2E),41,33,38,48
+APP-0274,SIMKependudukan (BRI) #274,BUMN BRI,Administrasi Pemerintahan (G2G),74,57,63,72
+APP-0275,Sistem Kependudukan (Telkom) #275,BUMN Telkom,Layanan Publik (G2C),79,80,74,84
+APP-0276,Sistem Pelaporan (Telkom) #276,BUMN Telkom,Layanan ASN (G2E),73,72,65,71
+APP-0277,Layanan Retribusi (Negeri) #277,Kementerian Dalam Negeri,Layanan Publik (G2C),25,26,49,53
+APP-0278,Sistem Hukum (Bandung) #278,Pemkot Bandung,Layanan ASN (G2E),53,58,71,74
+APP-0279,Dashboard Pertanian (Kominfo) #279,Kementerian Kominfo,Administrasi Pemerintahan (G2G),85,83,71,87
+APP-0280,Layanan Pertanian (PLN) #280,BUMN PLN,Layanan Publik (G2C),32,12,40,49
+APP-0281,Sistem Arsip (Kominfo) #281,Kementerian Kominfo,Layanan Publik (G2C),58,48,68,67
+APP-0282,Portal Lingkungan (Kesehatan) #282,Kementerian Kesehatan,Administrasi Pemerintahan (G2G),44,40,22,50
+APP-0283,Smart Kesehatan (Bekasi) #283,Pemkab Bekasi,Administrasi Pemerintahan (G2G),78,50,50,52
+APP-0284,DigiPengaduan (Cimahi) #284,Pemkot Cimahi,Layanan Publik (G2C),72,64,67,68
+APP-0285,Layanan Perhubungan (Mandiri) #285,BUMN Mandiri,Layanan ASN (G2E),91,95,70,77
+APP-0286,e-Pariwisata (BRI) #286,BUMN BRI,Layanan Bisnis/BUMN (G2B),72,71,72,74
+APP-0287,Aplikasi Lingkungan (Peruri) #287,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),49,44,18,41
+APP-0288,Sistem Kinerja (Kominfo) #288,Kementerian Kominfo,Layanan ASN (G2E),81,96,79,76
+APP-0289,SIMHukum (Cimahi) #289,Pemkot Cimahi,Administrasi Pemerintahan (G2G),56,73,73,70
+APP-0290,Sistem Logistik (Cimahi) #290,Pemkot Cimahi,Administrasi Pemerintahan (G2G),67,49,50,52
+APP-0291,e-Pertanian (BRI) #291,BUMN BRI,Layanan Bisnis/BUMN (G2B),60,46,56,62
+APP-0292,Dashboard Pelaporan (Mandiri) #292,BUMN Mandiri,Layanan ASN (G2E),95,94,83,84
+APP-0293,Portal Retribusi (Negeri) #293,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),64,65,74,61
+APP-0294,Dashboard Kinerja (Jakarta) #294,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),65,57,63,61
+APP-0295,Layanan Retribusi (Mandiri) #295,BUMN Mandiri,Layanan Publik (G2C),15,31,33,22
+APP-0296,Layanan Kependudukan (Bandung) #296,Pemkot Bandung,Layanan Publik (G2C),45,44,34,33
+APP-0297,e-Pengaduan (BUMN) #297,Kementerian BUMN,Administrasi Pemerintahan (G2G),28,44,17,29
+APP-0298,SIMAnggaran (Purwakarta) #298,Pemkab Purwakarta,Layanan Publik (G2C),69,50,76,74
+APP-0299,Portal Logistik (PANRB) #299,Kementerian PANRB,Layanan Publik (G2C),29,23,45,50
+APP-0300,Portal Pelayanan (Hukum) #300,Kementerian Hukum,Administrasi Pemerintahan (G2G),84,83,74,89
+APP-0301,SI-Tata Ruang (Purwakarta) #301,Pemkab Purwakarta,Administrasi Pemerintahan (G2G),55,55,66,52
+APP-0302,SI-Perizinan (Jakarta) #302,Pemprov DKI Jakarta,Layanan Publik (G2C),98,76,72,83
+APP-0303,Portal Pajak (Mandiri) #303,BUMN Mandiri,Layanan Bisnis/BUMN (G2B),71,63,62,60
+APP-0304,SI-Anggaran (BUMN) #304,Kementerian BUMN,Layanan Bisnis/BUMN (G2B),59,56,56,73
+APP-0305,Sistem Pajak (Jakarta) #305,Pemprov DKI Jakarta,Layanan ASN (G2E),37,36,20,31
+APP-0306,Sistem Keuangan (Pendidikan) #306,Kementerian Pendidikan,Layanan Publik (G2C),47,23,41,25
+APP-0307,Sistem Statistik (PANRB) #307,Kementerian PANRB,Administrasi Pemerintahan (G2G),88,79,90,95
+APP-0308,Sistem Sosial (Cimahi) #308,Pemkot Cimahi,Layanan Publik (G2C),57,71,51,72
+APP-0309,SI-Arsip (Cimahi) #309,Pemkot Cimahi,Layanan Publik (G2C),43,43,32,26
+APP-0310,e-Pelayanan (Jakarta) #310,Pemprov DKI Jakarta,Layanan Bisnis/BUMN (G2B),53,63,75,67
+APP-0311,e-Kependudukan (Bekasi) #311,Pemkab Bekasi,Administrasi Pemerintahan (G2G),83,81,90,94
+APP-0312,Portal Monitoring (Bandung) #312,Pemkot Bandung,Layanan Publik (G2C),64,46,54,67
+APP-0313,SI-Retribusi (BRI) #313,BUMN BRI,Layanan Publik (G2C),42,39,38,30
+APP-0314,Aplikasi Informasi (Barat) #314,Pemprov Jawa Barat,Administrasi Pemerintahan (G2G),52,56,55,64
+APP-0315,Aplikasi Pendidikan (Bandung) #315,Pemkot Bandung,Layanan Publik (G2C),16,35,46,21
+APP-0316,DigiKomunikasi (Kesehatan) #316,Kementerian Kesehatan,Layanan Bisnis/BUMN (G2B),26,21,25,51
+APP-0317,Portal Anggaran (Jakarta) #317,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),30,27,27,27
+APP-0318,Layanan Pariwisata (Negeri) #318,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),80,97,94,89
+APP-0319,Layanan Pendidikan (Cimahi) #319,Pemkot Cimahi,Layanan ASN (G2E),86,88,84,76
+APP-0320,Sistem Perhubungan (Bandung) #320,Pemkot Bandung,Administrasi Pemerintahan (G2G),87,80,94,91
+APP-0321,DigiAnggaran (Cimahi) #321,Pemkot Cimahi,Administrasi Pemerintahan (G2G),70,75,69,74
+APP-0322,Portal Audit (Jakarta) #322,Pemprov DKI Jakarta,Layanan Publik (G2C),53,50,52,65
+APP-0323,Layanan Arsip (Barat) #323,Pemprov Jawa Barat,Layanan Publik (G2C),84,78,82,80
+APP-0324,Dashboard Pertanian (Bandung) #324,Pemkot Bandung,Layanan Publik (G2C),43,31,48,23
+APP-0325,e-Pendidikan (BRI) #325,BUMN BRI,Administrasi Pemerintahan (G2G),23,32,30,43
+APP-0326,DigiKepegawaian (PLN) #326,BUMN PLN,Layanan Bisnis/BUMN (G2B),60,74,77,51
+APP-0327,SI-Pengadaan (Pertamina) #327,BUMN Pertamina,Administrasi Pemerintahan (G2G),80,94,84,79
+APP-0328,DigiPengaduan (Mandiri) #328,BUMN Mandiri,Layanan Publik (G2C),67,74,52,72
+APP-0329,Aplikasi Arsip (PLN) #329,BUMN PLN,Administrasi Pemerintahan (G2G),56,54,60,76
+APP-0330,DigiLingkungan (Barat) #330,Pemprov Jawa Barat,Layanan Publik (G2C),61,62,74,67
+APP-0331,DigiPelayanan (Purwakarta) #331,Pemkab Purwakarta,Layanan Publik (G2C),52,72,61,52
+APP-0332,Sistem Anggaran (Purwakarta) #332,Pemkab Purwakarta,Administrasi Pemerintahan (G2G),70,74,54,59
+APP-0333,SI-Pertanian (Pendidikan) #333,Kementerian Pendidikan,Layanan ASN (G2E),73,55,56,63
+APP-0334,Smart Mitigasi (PANRB) #334,Kementerian PANRB,Layanan Publik (G2C),72,60,50,53
+APP-0335,e-Pelayanan (Pertamina) #335,BUMN Pertamina,Layanan ASN (G2E),68,50,69,69
+APP-0336,Dashboard Mitigasi (BUMN) #336,Kementerian BUMN,Layanan Publik (G2C),81,87,81,95
+APP-0337,e-Arsip (Purwakarta) #337,Pemkab Purwakarta,Administrasi Pemerintahan (G2G),50,49,60,53
+APP-0338,DigiStatistik (BUMN) #338,Kementerian BUMN,Administrasi Pemerintahan (G2G),99,83,73,93
+APP-0339,Dashboard Pengadaan (PANRB) #339,Kementerian PANRB,Layanan Bisnis/BUMN (G2B),70,51,53,60
+APP-0340,Layanan Kinerja (Mandiri) #340,BUMN Mandiri,Layanan Publik (G2C),96,96,82,75
+APP-0341,Smart Logistik (Negeri) #341,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),98,84,85,89
+APP-0342,Layanan Lingkungan (Mandiri) #342,BUMN Mandiri,Layanan Bisnis/BUMN (G2B),67,60,78,53
+APP-0343,e-Komunikasi (Bandung) #343,Pemkot Bandung,Administrasi Pemerintahan (G2G),70,56,77,67
+APP-0344,e-Logistik (Hukum) #344,Kementerian Hukum,Layanan ASN (G2E),40,23,50,36
+APP-0345,Sistem Perhubungan (Bandung) #345,Pemkot Bandung,Layanan Publik (G2C),84,78,82,89
+APP-0346,Layanan Perhubungan (Kesehatan) #346,Kementerian Kesehatan,Layanan ASN (G2E),63,68,71,56
+APP-0347,Sistem Perizinan (Negeri) #347,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),22,34,36,36
+APP-0348,e-Kesehatan (PANRB) #348,Kementerian PANRB,Administrasi Pemerintahan (G2G),29,15,48,28
+APP-0349,DigiKomunikasi (Telkom) #349,BUMN Telkom,Layanan ASN (G2E),16,37,39,54
+APP-0350,Aplikasi Perhubungan (Kominfo) #350,Kementerian Kominfo,Layanan Publik (G2C),57,53,50,50
+APP-0351,SI-Monitoring (PANRB) #351,Kementerian PANRB,Layanan Publik (G2C),89,97,84,92
+APP-0352,Portal Pengaduan (Peruri) #352,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),72,72,50,55
+APP-0353,SI-Retribusi (Bekasi) #353,Pemkab Bekasi,Layanan Bisnis/BUMN (G2B),98,93,82,84
+APP-0354,Dashboard Hukum (Mandiri) #354,BUMN Mandiri,Administrasi Pemerintahan (G2G),70,57,68,74
+APP-0355,DigiInformasi (Purwakarta) #355,Pemkab Purwakarta,Layanan Bisnis/BUMN (G2B),51,67,79,54
+APP-0356,e-Kepegawaian (Pertamina) #356,BUMN Pertamina,Layanan Bisnis/BUMN (G2B),72,72,76,53
+APP-0357,Portal Pertanian (PLN) #357,BUMN PLN,Layanan Publik (G2C),46,11,17,31
+APP-0358,Aplikasi Perhubungan (Bekasi) #358,Pemkab Bekasi,Layanan ASN (G2E),95,86,89,83
+APP-0359,Sistem Kepegawaian (Pertamina) #359,BUMN Pertamina,Layanan Publik (G2C),20,13,15,22
+APP-0360,e-Audit (Telkom) #360,BUMN Telkom,Layanan Publik (G2C),91,78,70,91
+APP-0361,SI-Pelaporan (Purwakarta) #361,Pemkab Purwakarta,Layanan ASN (G2E),62,71,65,72
+APP-0362,DigiKesehatan (Peruri) #362,BUMN Perum Peruri,Layanan Publik (G2C),78,47,55,63
+APP-0363,DigiKomunikasi (PLN) #363,BUMN PLN,Layanan Publik (G2C),24,26,50,29
+APP-0364,e-Monitoring (Purwakarta) #364,Pemkab Purwakarta,Layanan ASN (G2E),31,22,17,53
+APP-0365,Layanan Pengadaan (Bekasi) #365,Pemkab Bekasi,Layanan Bisnis/BUMN (G2B),42,37,28,40
+APP-0366,Portal Logistik (Mandiri) #366,BUMN Mandiri,Layanan Publik (G2C),60,66,69,64
+APP-0367,Dashboard Retribusi (BRI) #367,BUMN BRI,Layanan Publik (G2C),68,48,63,67
+APP-0368,Sistem Pajak (Keuangan) #368,Kementerian Keuangan,Layanan Bisnis/BUMN (G2B),42,37,49,48
+APP-0369,Portal Hukum (Barat) #369,Pemprov Jawa Barat,Administrasi Pemerintahan (G2G),67,67,73,75
+APP-0370,Layanan Anggaran (Hukum) #370,Kementerian Hukum,Layanan Bisnis/BUMN (G2B),66,51,54,70
+APP-0371,Smart Pariwisata (Hukum) #371,Kementerian Hukum,Layanan Publik (G2C),51,47,23,42
+APP-0372,Smart Lingkungan (Kesehatan) #372,Kementerian Kesehatan,Layanan Bisnis/BUMN (G2B),45,27,45,22
+APP-0373,DigiRetribusi (Jakarta) #373,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),53,68,78,62
+APP-0374,SIMKeuangan (Hukum) #374,Kementerian Hukum,Layanan Bisnis/BUMN (G2B),40,25,21,43
+APP-0375,Portal Pengadaan (PLN) #375,BUMN PLN,Administrasi Pemerintahan (G2G),99,82,71,81
+APP-0376,Layanan Hukum (Kesehatan) #376,Kementerian Kesehatan,Layanan Publik (G2C),74,53,50,61
+APP-0377,Smart Mitigasi (Barat) #377,Pemprov Jawa Barat,Layanan Publik (G2C),29,29,38,28
+APP-0378,Portal Lingkungan (Jakarta) #378,Pemprov DKI Jakarta,Layanan Bisnis/BUMN (G2B),60,46,72,50
+APP-0379,SI-Pelayanan (BUMN) #379,Kementerian BUMN,Layanan ASN (G2E),95,77,91,79
+APP-0380,Dashboard Statistik (Negeri) #380,Kementerian Dalam Negeri,Layanan Publik (G2C),15,21,51,49
+APP-0381,Layanan Hukum (PANRB) #381,Kementerian PANRB,Layanan Publik (G2C),99,75,88,82
+APP-0382,Aplikasi Perizinan (Bekasi) #382,Pemkab Bekasi,Administrasi Pemerintahan (G2G),71,52,78,69
+APP-0383,Sistem Anggaran (Peruri) #383,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),69,74,70,50
+APP-0384,Sistem Pendidikan (BUMN) #384,Kementerian BUMN,Layanan Publik (G2C),69,64,71,75
+APP-0385,Aplikasi Keuangan (Hukum) #385,Kementerian Hukum,Layanan Publik (G2C),64,48,62,66
+APP-0386,Smart Pertanian (Mandiri) #386,BUMN Mandiri,Administrasi Pemerintahan (G2G),81,77,89,78
+APP-0387,Sistem Aset (Telkom) #387,BUMN Telkom,Layanan Publik (G2C),60,65,70,64
+APP-0388,SIMKependudukan (Bandung) #388,Pemkot Bandung,Administrasi Pemerintahan (G2G),91,95,81,79
+APP-0389,Smart Pelayanan (Kominfo) #389,Kementerian Kominfo,Layanan ASN (G2E),73,55,60,65
+APP-0390,Sistem Pariwisata (BUMN) #390,Kementerian BUMN,Administrasi Pemerintahan (G2G),36,23,50,26
+APP-0391,DigiLingkungan (PLN) #391,BUMN PLN,Layanan Publik (G2C),48,14,31,40
+APP-0392,SIMPajak (Jakarta) #392,Pemprov DKI Jakarta,Administrasi Pemerintahan (G2G),36,44,22,22
+APP-0393,Dashboard Audit (Mandiri) #393,BUMN Mandiri,Layanan Bisnis/BUMN (G2B),50,14,42,47
+APP-0394,SI-Logistik (Kesehatan) #394,Kementerian Kesehatan,Administrasi Pemerintahan (G2G),51,49,66,72
+APP-0395,Dashboard Kesehatan (Telkom) #395,BUMN Telkom,Layanan Publik (G2C),92,86,90,76
+APP-0396,DigiStatistik (Mandiri) #396,BUMN Mandiri,Administrasi Pemerintahan (G2G),20,47,30,43
+APP-0397,Layanan Pelaporan (Peruri) #397,BUMN Perum Peruri,Layanan Publik (G2C),58,63,62,50
+APP-0398,Smart Pertanian (Bandung) #398,Pemkot Bandung,Administrasi Pemerintahan (G2G),42,44,29,30
+APP-0399,SIMStatistik (Peruri) #399,BUMN Perum Peruri,Layanan Publik (G2C),88,79,73,77
+APP-0400,Sistem Komunikasi (BUMN) #400,Kementerian BUMN,Layanan Publik (G2C),20,21,40,20
+APP-0401,Portal Kepegawaian (Bekasi) #401,Pemkab Bekasi,Administrasi Pemerintahan (G2G),66,74,60,73
+APP-0402,Aplikasi Lingkungan (Bekasi) #402,Pemkab Bekasi,Layanan Publik (G2C),46,15,26,41
+APP-0403,Portal Kinerja (Bandung) #403,Pemkot Bandung,Administrasi Pemerintahan (G2G),91,97,89,80
+APP-0404,Sistem Hukum (Peruri) #404,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),70,62,76,62
+APP-0405,Smart Logistik (PANRB) #405,Kementerian PANRB,Layanan Publik (G2C),31,30,16,34
+APP-0406,Aplikasi Aset (PANRB) #406,Kementerian PANRB,Layanan ASN (G2E),73,57,76,71
+APP-0407,DigiSosial (Keuangan) #407,Kementerian Keuangan,Layanan Publik (G2C),52,70,76,76
+APP-0408,Smart Pelaporan (Hukum) #408,Kementerian Hukum,Administrasi Pemerintahan (G2G),92,76,72,93
+APP-0409,SI-Komunikasi (Kesehatan) #409,Kementerian Kesehatan,Administrasi Pemerintahan (G2G),23,16,29,33
+APP-0410,Layanan Monitoring (Keuangan) #410,Kementerian Keuangan,Administrasi Pemerintahan (G2G),55,71,64,57
+APP-0411,Sistem Sosial (PLN) #411,BUMN PLN,Layanan Publik (G2C),74,53,76,70
+APP-0412,Portal Audit (Negeri) #412,Kementerian Dalam Negeri,Layanan Publik (G2C),53,55,78,75
+APP-0413,SIMHukum (Mandiri) #413,BUMN Mandiri,Administrasi Pemerintahan (G2G),66,51,72,73
+APP-0414,e-Audit (Jakarta) #414,Pemprov DKI Jakarta,Layanan Bisnis/BUMN (G2B),23,44,30,42
+APP-0415,e-Retribusi (Barat) #415,Pemprov Jawa Barat,Layanan ASN (G2E),31,42,16,49
+APP-0416,Aplikasi Tata Ruang (Kesehatan) #416,Kementerian Kesehatan,Administrasi Pemerintahan (G2G),15,22,22,42
+APP-0417,SIMInformasi (Bandung) #417,Pemkot Bandung,Layanan Publik (G2C),71,62,54,61
+APP-0418,SI-Perhubungan (Kesehatan) #418,Kementerian Kesehatan,Layanan Publik (G2C),57,62,76,63
+APP-0419,e-Retribusi (Bekasi) #419,Pemkab Bekasi,Layanan ASN (G2E),26,15,34,43
+APP-0420,Layanan Kependudukan (Cimahi) #420,Pemkot Cimahi,Layanan Publik (G2C),58,49,61,62
+APP-0421,Portal Informasi (PANRB) #421,Kementerian PANRB,Layanan Publik (G2C),59,61,57,70
+APP-0422,Aplikasi Aset (Bekasi) #422,Pemkab Bekasi,Layanan ASN (G2E),31,11,15,38
+APP-0423,Sistem Pengaduan (Pertamina) #423,BUMN Pertamina,Administrasi Pemerintahan (G2G),96,77,79,75
+APP-0424,SIMKesehatan (Purwakarta) #424,Pemkab Purwakarta,Layanan Publik (G2C),98,76,80,89
+APP-0425,e-Audit (Cimahi) #425,Pemkot Cimahi,Administrasi Pemerintahan (G2G),52,68,74,64
+APP-0426,Aplikasi Tata Ruang (PANRB) #426,Kementerian PANRB,Layanan Publik (G2C),27,36,40,26
+APP-0427,Layanan Pariwisata (Mandiri) #427,BUMN Mandiri,Layanan Publik (G2C),57,68,74,50
+APP-0428,Smart Logistik (Bandung) #428,Pemkot Bandung,Administrasi Pemerintahan (G2G),55,47,77,65
+APP-0429,Smart Perhubungan (Kesehatan) #429,Kementerian Kesehatan,Layanan Publik (G2C),82,94,72,97
+APP-0430,Portal Kinerja (PLN) #430,BUMN PLN,Layanan ASN (G2E),45,22,33,37
+APP-0431,SIMTata Ruang (Kominfo) #431,Kementerian Kominfo,Layanan Publik (G2C),35,38,34,24
+APP-0432,Smart Audit (PLN) #432,BUMN PLN,Layanan Bisnis/BUMN (G2B),50,60,58,66
+APP-0433,Portal Kesehatan (Barat) #433,Pemprov Jawa Barat,Layanan Bisnis/BUMN (G2B),75,46,70,65
+APP-0434,e-Sosial (Peruri) #434,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),56,65,66,53
+APP-0435,Layanan Tata Ruang (Cimahi) #435,Pemkot Cimahi,Layanan ASN (G2E),89,92,87,92
+APP-0436,Aplikasi Kinerja (Cimahi) #436,Pemkot Cimahi,Administrasi Pemerintahan (G2G),49,47,44,21
+APP-0437,Layanan Kepegawaian (Cimahi) #437,Pemkot Cimahi,Administrasi Pemerintahan (G2G),97,93,89,78
+APP-0438,DigiAnggaran (Pendidikan) #438,Kementerian Pendidikan,Administrasi Pemerintahan (G2G),18,28,33,42
+APP-0439,Layanan Pengaduan (Cimahi) #439,Pemkot Cimahi,Layanan Publik (G2C),70,62,78,70
+APP-0440,SIMPerhubungan (Purwakarta) #440,Pemkab Purwakarta,Layanan Publik (G2C),51,48,68,68
+APP-0441,Portal Pariwisata (Cimahi) #441,Pemkot Cimahi,Administrasi Pemerintahan (G2G),78,49,59,50
+APP-0442,Sistem Pendidikan (BUMN) #442,Kementerian BUMN,Administrasi Pemerintahan (G2G),58,71,72,53
+APP-0443,DigiRetribusi (Jakarta) #443,Pemprov DKI Jakarta,Layanan Publik (G2C),35,41,28,37
+APP-0444,Portal Pendidikan (BUMN) #444,Kementerian BUMN,Layanan ASN (G2E),40,28,39,46
+APP-0445,Aplikasi Kesehatan (Keuangan) #445,Kementerian Keuangan,Layanan Publik (G2C),34,33,31,46
+APP-0446,Dashboard Lingkungan (Peruri) #446,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),18,32,16,53
+APP-0447,Layanan Mitigasi (Jakarta) #447,Pemprov DKI Jakarta,Layanan Publik (G2C),70,54,66,56
+APP-0448,Sistem Pendidikan (Cimahi) #448,Pemkot Cimahi,Layanan Bisnis/BUMN (G2B),32,46,32,38
+APP-0449,Sistem Monitoring (Bandung) #449,Pemkot Bandung,Layanan Publik (G2C),58,69,63,74
+APP-0450,Dashboard Kepegawaian (Pertamina) #450,BUMN Pertamina,Layanan Publik (G2C),63,60,73,61
+APP-0451,Portal Aset (Kesehatan) #451,Kementerian Kesehatan,Administrasi Pemerintahan (G2G),66,63,75,69
+APP-0452,DigiTata Ruang (Pertamina) #452,BUMN Pertamina,Layanan Bisnis/BUMN (G2B),32,27,32,54
+APP-0453,Portal Kinerja (Telkom) #453,BUMN Telkom,Layanan ASN (G2E),33,18,41,30
+APP-0454,Layanan Perizinan (Hukum) #454,Kementerian Hukum,Layanan Bisnis/BUMN (G2B),66,49,51,71
+APP-0455,Dashboard Logistik (Hukum) #455,Kementerian Hukum,Layanan Publik (G2C),87,75,72,97
+APP-0456,SI-Arsip (Purwakarta) #456,Pemkab Purwakarta,Layanan Publik (G2C),37,23,36,46
+APP-0457,DigiKinerja (Telkom) #457,BUMN Telkom,Layanan ASN (G2E),23,40,50,22
+APP-0458,Sistem Statistik (Negeri) #458,Kementerian Dalam Negeri,Layanan Bisnis/BUMN (G2B),25,10,34,25
+APP-0459,DigiKesehatan (Telkom) #459,BUMN Telkom,Layanan ASN (G2E),92,75,94,91
+APP-0460,Smart Lingkungan (Negeri) #460,Kementerian Dalam Negeri,Administrasi Pemerintahan (G2G),43,28,40,40
+APP-0461,Smart Perhubungan (Cimahi) #461,Pemkot Cimahi,Layanan Bisnis/BUMN (G2B),73,54,66,73
+APP-0462,DigiLingkungan (Barat) #462,Pemprov Jawa Barat,Layanan Publik (G2C),34,46,25,26
+APP-0463,Layanan Pengaduan (PANRB) #463,Kementerian PANRB,Administrasi Pemerintahan (G2G),57,66,59,74
+APP-0464,Layanan Pertanian (Kesehatan) #464,Kementerian Kesehatan,Layanan ASN (G2E),23,26,32,45
+APP-0465,Portal Aset (Peruri) #465,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),51,66,66,74
+APP-0466,Sistem Pengadaan (PANRB) #466,Kementerian PANRB,Administrasi Pemerintahan (G2G),29,42,51,47
+APP-0467,SIMPelaporan (Mandiri) #467,BUMN Mandiri,Administrasi Pemerintahan (G2G),58,49,50,64
+APP-0468,Smart Aset (Negeri) #468,Kementerian Dalam Negeri,Layanan Publik (G2C),79,84,72,77
+APP-0469,e-Kesehatan (PANRB) #469,Kementerian PANRB,Administrasi Pemerintahan (G2G),55,49,54,68
+APP-0470,SIMMonitoring (Peruri) #470,BUMN Perum Peruri,Layanan ASN (G2E),90,86,95,86
+APP-0471,Sistem Komunikasi (PLN) #471,BUMN PLN,Layanan Bisnis/BUMN (G2B),25,21,17,40
+APP-0472,Smart Pengaduan (Purwakarta) #472,Pemkab Purwakarta,Layanan Bisnis/BUMN (G2B),44,18,32,48
+APP-0473,Smart Pelaporan (Pendidikan) #473,Kementerian Pendidikan,Layanan Publik (G2C),30,21,45,47
+APP-0474,Dashboard Pengaduan (Barat) #474,Pemprov Jawa Barat,Layanan Publik (G2C),93,76,92,76
+APP-0475,Smart Aset (Bandung) #475,Pemkot Bandung,Administrasi Pemerintahan (G2G),50,62,51,66
+APP-0476,Dashboard Pengadaan (Kominfo) #476,Kementerian Kominfo,Layanan ASN (G2E),61,47,73,64
+APP-0477,e-Arsip (BRI) #477,BUMN BRI,Administrasi Pemerintahan (G2G),68,48,63,53
+APP-0478,DigiKesehatan (Kominfo) #478,Kementerian Kominfo,Layanan ASN (G2E),59,50,71,65
+APP-0479,SIMAnggaran (Kesehatan) #479,Kementerian Kesehatan,Layanan Bisnis/BUMN (G2B),88,94,91,80
+APP-0480,DigiPajak (Hukum) #480,Kementerian Hukum,Layanan Bisnis/BUMN (G2B),28,29,48,43
+APP-0481,Smart Monitoring (Peruri) #481,BUMN Perum Peruri,Administrasi Pemerintahan (G2G),56,67,59,58
+APP-0482,DigiPerizinan (Peruri) #482,BUMN Perum Peruri,Layanan Publik (G2C),79,82,75,81
+APP-0483,SI-Lingkungan (PANRB) #483,Kementerian PANRB,Administrasi Pemerintahan (G2G),52,59,52,56
+APP-0484,Sistem Perhubungan (Pendidikan) #484,Kementerian Pendidikan,Layanan ASN (G2E),26,20,33,41
+APP-0485,Aplikasi Tata Ruang (Kesehatan) #485,Kementerian Kesehatan,Layanan Publik (G2C),26,40,35,41
+APP-0486,e-Kinerja (Keuangan) #486,Kementerian Keuangan,Layanan Bisnis/BUMN (G2B),74,62,69,68
+APP-0487,e-Pertanian (Kesehatan) #487,Kementerian Kesehatan,Layanan ASN (G2E),46,35,47,46
+APP-0488,Sistem Lingkungan (Telkom) #488,BUMN Telkom,Layanan ASN (G2E),78,46,76,64
+APP-0489,DigiPertanian (Bandung) #489,Pemkot Bandung,Layanan Bisnis/BUMN (G2B),45,41,50,47
+APP-0490,e-Statistik (Mandiri) #490,BUMN Mandiri,Administrasi Pemerintahan (G2G),62,48,76,69
+APP-0491,Dashboard Mitigasi (Bekasi) #491,Pemkab Bekasi,Administrasi Pemerintahan (G2G),75,63,58,53
+APP-0492,Aplikasi Pelayanan (Hukum) #492,Kementerian Hukum,Layanan ASN (G2E),55,66,51,70
+APP-0493,Aplikasi Pengadaan (PLN) #493,BUMN PLN,Layanan Publik (G2C),47,23,44,31
+APP-0494,Dashboard Mitigasi (Purwakarta) #494,Pemkab Purwakarta,Administrasi Pemerintahan (G2G),33,26,29,26
+APP-0495,Smart Arsip (BRI) #495,BUMN BRI,Layanan Publik (G2C),25,40,37,27
+APP-0496,Aplikasi Informasi (Pendidikan) #496,Kementerian Pendidikan,Administrasi Pemerintahan (G2G),27,24,39,30
+APP-0497,Dashboard Pengaduan (PLN) #497,BUMN PLN,Administrasi Pemerintahan (G2G),36,41,50,29
+APP-0498,SI-Komunikasi (Jakarta) #498,Pemprov DKI Jakarta,Layanan ASN (G2E),34,31,29,20
+APP-0499,Aplikasi Perhubungan (Peruri) #499,BUMN Perum Peruri,Layanan Publik (G2C),34,10,50,34
+APP-0500,Portal Tata Ruang (Negeri) #500,Kementerian Dalam Negeri,Layanan Publik (G2C),49,37,23,39

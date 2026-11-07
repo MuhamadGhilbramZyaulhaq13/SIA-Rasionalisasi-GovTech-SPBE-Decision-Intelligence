@@ -1,0 +1,27 @@
+[build]
+  # No build step needed - pure static files
+  command = ""
+  publish = "."
+
+[functions]
+  # No serverless functions needed
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/Dataset_500_Aplikasi_SPBE_INA_Digital.csv"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "text/csv; charset=utf-8"
+
+# Redirect untuk SPA-like behavior (opsional)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  # Gunakan hanya jika diperlukan untuk client-side routing

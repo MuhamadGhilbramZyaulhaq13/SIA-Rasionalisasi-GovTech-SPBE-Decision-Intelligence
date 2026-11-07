@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIA-Rasionalisasi — GovTech SPBE Decision Intelligence</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            gov: {
+              navy: '#0B1D3A',
+              indigo: '#3B4FD8',
+              emerald: '#059669',
+              amber: '#D97706',
+              rose: '#E11D48',
+              slate: '#64748B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- PapaParse -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- Iconify (inline SVG icons) -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 min-h-screen">
+
+  <!-- ====== TOP NAVIGATION HEADER ====== -->
+  <header class="bg-gov-navy shadow-lg sticky top-0 z-40 border-b border-gov-indigo">
+    <div class="max-w-[1600px] mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-3">
+      <!-- Left: Branding -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gov-indigo rounded-lg flex items-center justify-center shadow-lg">
+          <span class="iconify" data-icon="tabler:shield-check" data-width="24" data-height="24" style="color: white;"></span>
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold leading-tight tracking-tight text-white">SIA-Rasionalisasi</h1>
+          <p class="text-sm text-white/90">GovTech SPBE Portfolio Decision Intelligence</p>
+        </div>
+      </div>
+
+      <!-- Right: Badges & Actions -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="badge-regulasi text-sm px-2.5 py-1 rounded-full font-medium hidden sm:inline-flex items-center gap-1">
+          <span class="iconify" data-icon="mdi:scale-balance" data-width="12" data-height="12"></span> Perpres 132/2022 &amp; 82/2023
+        </span>
+        <span id="header-cr-badge" class="badge-konsisten text-sm px-2.5 py-1 rounded-full font-mono font-medium">
+          CR: 0.0115 ✓
+        </span>
+        <div class="flex items-center gap-1.5">
+          <button id="btn-import-csv" class="btn btn-outline-dark text-sm px-3 py-1.5" title="Import CSV">
+            <span class="iconify" data-icon="mdi:file-import" data-width="16" data-height="16"></span>Import
+          </button>
+          <button id="btn-add-app-header" class="btn btn-outline-dark text-sm px-3 py-1.5" title="Tambah Aplikasi">
+            <span class="iconify" data-icon="mdi:plus" data-width="16" data-height="16"></span>Tambah
+          </button>
+          <button id="btn-export-csv" class="btn btn-outline-dark text-sm px-3 py-1.5" title="Export CSV">
+            <span class="iconify" data-icon="mdi:file-export" data-width="16" data-height="16"></span>Export
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====== TAB NAVIGATION ====== -->
+    <nav class="bg-white border-b border-slate-200 shadow-sm sticky top-[68px] z-30">
+      <div class="max-w-[1600px] mx-auto px-4 flex gap-0 overflow-x-auto">
+        <button class="tab-btn active" data-tab="dashboard" id="tab-dashboard">
+          <span class="iconify mr-1.5" data-icon="mdi:chart-pie" data-width="18" data-height="18"></span>Ringkasan Eksekutif
+        </button>
+        <button class="tab-btn" data-tab="ahp" id="tab-ahp">
+          <span class="iconify mr-1.5" data-icon="mdi:table-edit" data-width="18" data-height="18"></span>Konfigurasi AHP
+        </button>
+        <button class="tab-btn" data-tab="ranking" id="tab-ranking">
+          <span class="iconify mr-1.5" data-icon="mdi:trophy" data-width="18" data-height="18"></span>Perangkingan
+        </button>
+        <button class="tab-btn" data-tab="dataset" id="tab-dataset">
+          <span class="iconify mr-1.5" data-icon="mdi:database" data-width="18" data-height="18"></span>Dataset
+        </button>
+      </div>
+    </nav>
+
+  <!-- ====== MAIN CONTENT ====== -->
+  <main class="max-w-[1600px] mx-auto px-4 py-6" id="main-content">
+
+    <!-- Notification Area -->
+    <div id="notification-area" class="hidden mb-4"></div>
+
+    <!-- ==================== TAB 1: RINGKASAN EKSEKUTIF ==================== -->
+    <section id="content-dashboard" class="tab-content active animate-fade-in briefing-page" role="main">
+
+      <!-- Briefing Header (screen-visible) -->
+      <header class="briefing-header mb-4" aria-hidden="false">
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-gov-indigo rounded-lg flex items-center justify-center">
+              <span class="iconify" data-icon="tabler:shield-check" data-width="20" data-height="20" style="color: white;"></span>
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-gov-navy">SIA-Rasionalisasi — Briefing Eksekutif</h1>
+              <p class="text-sm text-slate-600">Evaluasi Portofolio Aplikasi SPBE — Metode AHP</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="briefing-timestamp" class="text-sm text-slate-100 font-mono px-3 py-1 bg-slate-800 rounded">Data per: —</span>
+            <button id="btn-print-briefing" class="btn btn-primary text-sm px-3 py-1.5 rounded-lg" onclick="window.print()">
+              <span class="iconify" data-icon="mdi:printer" data-width="16" data-height="16" class="mr-1"></span>Cetak Briefing PDF
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-sm text-slate-500 border-t border-slate-200 pt-2">
+          <span class="flex items-center gap-1"><span class="iconify" data-icon="mdi:calendar-clock" data-width="14" data-height="14"></span> Perpres 132/2022 &amp; 82/2023</span>
+          <span id="briefing-cr-status" class="flex items-center gap-1 font-mono">CR: 0.0115 (Konsisten)</span>
+        </div>
+      </header>
+
+      <!-- Hero Metric Row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4 briefing-kpi-row">
+        <!-- Total -->
+        <article class="briefing-kpi briefing-kpi-total" aria-label="Total portofolio dievaluasi">
+          <div class="briefing-kpi-icon" aria-hidden="true">
+            <span class="iconify" data-icon="mdi:layer-group" data-width="28" data-height="28"></span>
+          </div>
+          <div class="briefing-kpi-content">
+            <p class="briefing-kpi-label">Total Portofolio</p>
+            <p class="briefing-kpi-value font-mono" id="kpi-total">0</p>
+            <p class="briefing-kpi-sub">Aplikasi Dievaluasi</p>
+          </div>
+        </article>
+        <!-- Integrasi -->
+        <article class="briefing-kpi briefing-kpi-integrasi" aria-label="Prioritas Integrasi INA Digital">
+          <div class="briefing-kpi-icon" aria-hidden="true">
+            <span class="iconify" data-icon="mdi:check-circle-outline" data-width="28" data-height="28"></span>
+          </div>
+          <div class="briefing-kpi-content">
+            <p class="briefing-kpi-label">Integrasi INA Digital</p>
+            <p class="briefing-kpi-value font-mono" id="kpi-integrasi">0</p>
+            <p class="briefing-kpi-sub" id="kpi-integrasi-pct">0% — Skor ≥ 0.70</p>
+          </div>
+        </article>
+        <!-- Replikasi -->
+        <article class="briefing-kpi briefing-kpi-replikasi" aria-label="Replikasi Shared Service">
+          <div class="briefing-kpi-icon" aria-hidden="true">
+            <span class="iconify" data-icon="mdi:sync" data-width="28" data-height="28"></span>
+          </div>
+          <div class="briefing-kpi-content">
+            <p class="briefing-kpi-label">Replikasi Shared Service</p>
+            <p class="briefing-kpi-value font-mono" id="kpi-replikasi">0</p>
+            <p class="briefing-kpi-sub" id="kpi-replikasi-pct">0% — Skor 0.45–0.69</p>
+          </div>
+        </article>
+        <!-- Decommissioned -->
+        <article class="briefing-kpi briefing-kpi-decommissioned" aria-label="Rekomendasi Dihentikan">
+          <div class="briefing-kpi-icon" aria-hidden="true">
+            <span class="iconify" data-icon="mdi:close-circle-outline" data-width="28" data-height="28"></span>
+          </div>
+          <div class="briefing-kpi-content">
+            <p class="briefing-kpi-label">Dihentikan (Decommissioned)</p>
+            <p class="briefing-kpi-value font-mono" id="kpi-decommissioned">0</p>
+            <p class="briefing-kpi-sub" id="kpi-decommissioned-pct">0% — Skor &lt; 0.45</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 briefing-charts-row">
+        <section class="briefing-chart-card" aria-labelledby="chart-distribusi-title">
+          <h2 id="chart-distribusi-title" class="briefing-chart-title">
+            <span class="iconify" data-icon="mdi:chart-donut" data-width="18" data-height="18" class="mr-1"></span>
+            Distribusi Rasionalisasi Portofolio
+          </h2>
+          <div class="briefing-chart-container">
+            <canvas id="chart-distribusi" aria-label="Donut chart distribusi keputusan rasionalisasi"></canvas>
+          </div>
+        </section>
+        <section class="briefing-chart-card" aria-labelledby="chart-kriteria-title">
+          <h2 id="chart-kriteria-title" class="briefing-chart-title">
+            <span class="iconify" data-icon="mdi:chart-bar" data-width="18" data-height="18" class="mr-1"></span>
+            Bobot Prioritas Kriteria AHP
+          </h2>
+          <div class="briefing-chart-container">
+            <canvas id="chart-kriteria" aria-label="Bar chart bobot prioritas 4 kriteria AHP"></canvas>
+          </div>
+        </section>
+      </div>
+
+      <!-- Top 10 & Bottom 5 Tables -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 briefing-tables-row">
+        <section class="briefing-table-card" aria-labelledby="top10-title">
+          <header class="briefing-table-header">
+            <h2 id="top10-title" class="briefing-table-title">
+              <span class="iconify" data-icon="mdi:arrow-up-bold-box" data-width="18" data-height="18" class="mr-1"></span>
+              Top 10 Prioritas Integrasi INA Digital
+            </h2>
+          </header>
+          <div class="briefing-table-container">
+            <table class="briefing-table" role="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="briefing-col-rank">#</th>
+                  <th scope="col" class="briefing-col-kode">Kode</th>
+                  <th scope="col" class="briefing-col-nama">Nama Aplikasi</th>
+                  <th scope="col" class="briefing-col-instansi">Instansi</th>
+                  <th scope="col" class="briefing-col-score">Skor AHP</th>
+                </tr>
+              </thead>
+              <tbody id="table-top10"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="briefing-table-card" aria-labelledby="bottom5-title">
+          <header class="briefing-table-header">
+            <h2 id="bottom5-title" class="briefing-table-title">
+              <span class="iconify" data-icon="mdi:arrow-down-bold-box" data-width="18" data-height="18" class="mr-1"></span>
+              Bottom 5 Kandidat Decommissioned
+            </h2>
+          </header>
+          <div class="briefing-table-container">
+            <table class="briefing-table" role="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="briefing-col-rank">#</th>
+                  <th scope="col" class="briefing-col-kode">Kode</th>
+                  <th scope="col" class="briefing-col-nama">Nama Aplikasi</th>
+                  <th scope="col" class="briefing-col-instansi">Instansi</th>
+                  <th scope="col" class="briefing-col-score">Skor AHP</th>
+                </tr>
+              </thead>
+              <tbody id="table-bottom5"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- Print-only footer -->
+      <footer class="briefing-footer" aria-hidden="true">
+        <div class="flex items-center justify-between">
+          <span>SIA-Rasionalisasi — GovTech SPBE Portfolio Decision Intelligence</span>
+          <span id="briefing-print-date" class="font-mono"></span>
+        </div>
+      </footer>
+
+    </section>
+
+    <!-- ==================== TABS 2-4 (existing content preserved) ==================== -->
+    <!-- These sections remain unchanged from the incumbent implementation -->
+
+    <!-- Tab 2: Konfigurasi AHP -->
+    <section id="content-ahp" class="tab-content animate-fade-in">
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+          <h2 class="text-xl font-semibold text-slate-700 mb-4 flex items-center gap-2">
+            <span class="iconify" data-icon="mdi:table-edit" data-width="20" data-height="20" class="mr-2 text-indigo-500"></span>Matriks Perbandingan Berpasangan (Skala Saaty 1–9)
+          </h2>
+          <div class="overflow-x-auto">
+            <table class="matrix-table w-full text-sm text-center" id="matrix-pairwise">
+              <thead>
+                <tr class="bg-slate-100">
+                  <th class="p-2 font-semibold text-slate-600">Kriteria</th>
+                  <th class="p-2 font-semibold text-indigo-600">C1<br><span class="text-sm font-normal text-slate-400">Interoperabilitas</span></th>
+                  <th class="p-2 font-semibold text-indigo-600">C2<br><span class="text-sm font-normal text-slate-400">Keunikan Fungsi</span></th>
+                  <th class="p-2 font-semibold text-indigo-600">C3<br><span class="text-sm font-normal text-slate-400">Efisiensi Anggaran</span></th>
+                  <th class="p-2 font-semibold text-indigo-600">C4<br><span class="text-sm font-normal text-slate-400">Keamanan &amp; SDM</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-2 font-semibold text-slate-600 bg-slate-50">C1</td>
+                  <td class="matrix-cell-diagonal p-2 font-mono">1.0000</td>
+                  <td class="p-2"><select id="pw-0-1" class="matrix-select"></select></td>
+                  <td class="p-2"><select id="pw-0-2" class="matrix-select"></select></td>
+                  <td class="p-2"><select id="pw-0-3" class="matrix-select"></select></td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-semibold text-slate-600 bg-slate-50">C2</td>
+                  <td class="matrix-cell-reciprocal p-2 font-mono" id="pw-1-0">0.5000</td>
+                  <td class="matrix-cell-diagonal p-2 font-mono">1.0000</td>
+                  <td class="p-2"><select id="pw-1-2" class="matrix-select"></select></td>
+                  <td class="p-2"><select id="pw-1-3" class="matrix-select"></select></td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-semibold text-slate-600 bg-slate-50">C3</td>
+                  <td class="matrix-cell-reciprocal p-2 font-mono" id="pw-2-0">0.3333</td>
+                  <td class="matrix-cell-reciprocal p-2 font-mono" id="pw-2-1">0.5000</td>
+                  <td class="matrix-cell-diagonal p-2 font-mono">1.0000</td>
+                  <td class="p-2"><select id="pw-2-3" class="matrix-select"></select></td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-semibold text-slate-600 bg-slate-50">C4</td>
+                  <td class="matrix-cell-reciprocal p-2 font-mono" id="pw-3-0">0.2500</td>
+                  <td class="matrix-cell-reciprocal p-2 font-mono" id="pw-3-1">0.3333</td>
+                  <td class="matrix-cell-reciprocal p-2 font-mono" id="pw-3-2">0.5000</td>
+                  <td class="matrix-cell-diagonal p-2 font-mono">1.0000</td>
+                </tr>
+                <tr class="bg-slate-100 font-semibold">
+                  <td class="p-2 text-slate-600">Σ Kolom</td>
+                  <td class="p-2 font-mono text-indigo-700" id="col-sum-0">2.0833</td>
+                  <td class="p-2 font-mono text-indigo-700" id="col-sum-1">3.8333</td>
+                  <td class="p-2 font-mono text-indigo-700" id="col-sum-2">6.5000</td>
+                  <td class="p-2 font-mono text-indigo-700" id="col-sum-3">10.0000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="flex gap-2 mt-4">
+            <button id="btn-recalculate" class="btn btn-primary text-sm px-4 py-2 rounded-lg">
+              <span class="iconify" data-icon="mdi:calculator" data-width="18" data-height="18" class="mr-1.5"></span>Hitung Ulang Bobot &amp; Perangkingan
+            </button>
+            <button id="btn-reset-ahp" class="btn btn-outline text-sm px-4 py-2 rounded-lg">
+              <span class="iconify" data-icon="mdi:rotate-left" data-width="18" data-height="18" class="mr-1.5"></span>Reset Default
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+          <h2 class="text-xl font-semibold text-slate-700 mb-4 flex items-center gap-2">
+            <span class="iconify" data-icon="mdi:percent" data-width="20" data-height="20" class="mr-2 text-indigo-500"></span>Matriks Normalisasi &amp; Bobot Prioritas (W)
+          </h2>
+          <div class="overflow-x-auto">
+            <table class="matrix-table w-full text-sm text-center" id="table-normalized">
+              <thead>
+                <tr class="bg-slate-100">
+                  <th class="p-2 font-semibold text-slate-600">Kriteria</th>
+                  <th class="p-2 text-indigo-600 font-semibold">C1</th>
+                  <th class="p-2 text-indigo-600 font-semibold">C2</th>
+                  <th class="p-2 text-indigo-600 font-semibold">C3</th>
+                  <th class="p-2 text-indigo-600 font-semibold">C4</th>
+                  <th class="p-2 text-indigo-700 font-bold">W<sub>i</sub></th>
+                </tr>
+              </thead>
+              <tbody id="normalized-body"></tbody>
+            </table>
+          </div>
+          <div class="mt-5 space-y-3" id="weight-bars"></div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
+        <h2 class="text-xl font-semibold text-slate-700 mb-4 flex items-center gap-2">
+          <span class="iconify" data-icon="mdi:clipboard-check" data-width="20" data-height="20" class="mr-2 text-indigo-500"></span>Audit Konsistensi Matriks (Consistency Ratio Validator)
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-4">
+          <div class="text-center p-3 bg-slate-50 rounded-lg">
+            <p class="text-sm text-slate-500 font-medium">n (Kriteria)</p>
+            <p class="text-xl font-bold font-mono text-slate-800" id="cr-n">4</p>
+          </div>
+          <div class="text-center p-3 bg-slate-50 rounded-lg">
+            <p class="text-sm text-slate-500 font-medium">λ<sub>maks</sub></p>
+            <p class="text-xl font-bold font-mono text-slate-800" id="cr-lambda">4.0310</p>
+          </div>
+          <div class="text-center p-3 bg-slate-50 rounded-lg">
+            <p class="text-sm text-slate-500 font-medium">CI</p>
+            <p class="text-xl font-bold font-mono text-slate-800" id="cr-ci">0.0103</p>
+          </div>
+          <div class="text-center p-3 bg-slate-50 rounded-lg">
+            <p class="text-sm text-slate-500 font-medium">RI (n=4)</p>
+            <p class="text-xl font-bold font-mono text-slate-800" id="cr-ri">0.90</p>
+          </div>
+          <div class="text-center p-3 bg-slate-50 rounded-lg">
+            <p class="text-sm text-slate-500 font-medium">CR</p>
+            <p class="text-xl font-bold font-mono text-slate-800" id="cr-value">0.0115</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-3">
+          <div class="cr-formula text-sm font-mono text-slate-600 bg-slate-50 px-4 py-2 rounded-lg">
+            CR = CI / RI = (<span id="cr-ci-formula">0.0103</span>) / 0.90 = <strong id="cr-value-formula">0.0115</strong>
+          </div>
+          <span id="cr-status-badge" class="badge-konsisten text-sm px-4 py-2 rounded-full font-semibold">
+            ✅ KONSISTEN (CR ≤ 0.10)
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 3: Perangkingan -->
+    <section id="content-ranking" class="tab-content animate-fade-in">
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
+          <div class="lg:col-span-2">
+            <div class="relative">
+            <span class="iconify absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
+                  data-icon="mdi:magnify" data-width="18" data-height="18"></span>
+            <input type="search" id="search-ranking" class="form-input pl-9 w-full"
+                  placeholder="Cari kode, nama, atau instansi..." aria-label="Cari data perangkingan">
+          </div>
+          </div>
+          <div>
+            <select id="filter-rekomendasi" class="form-select w-full">
+              <option value="">Semua Rekomendasi</option>
+              <option value="Integrasi ke INA Digital">Integrasi</option>
+              <option value="Replikasi (Shared Service)">Replikasi</option>
+              <option value="Dihentikan (Decommissioned)">Dihentikan</option>
+            </select>
+          </div>
+          <div>
+            <select id="filter-kategori" class="form-select w-full"><option value="">Semua Kategori</option></select>
+          </div>
+          <div>
+            <select id="filter-instansi" class="form-select w-full"><option value="">Semua Instansi</option></select>
+          </div>
+          <div>
+            <select id="per-page" class="form-select w-full">
+              <option value="25">25 per halaman</option>
+              <option value="50">50 per halaman</option>
+              <option value="100">100 per halaman</option>
+              <option value="all">Semua Data</option>
+            </select>
+          </div>
+        </div>
+        <div class="mt-2 text-sm text-slate-500" id="results-count">Menampilkan 0 dari 0 aplikasi</div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+        <div class="table-container-large">
+          <table class="data-table w-full text-sm">
+            <thead>
+              <tr>
+                <th class="w-16 text-center">Rank</th>
+                <th class="w-24">Kode</th>
+                <th>Nama Aplikasi</th>
+                <th>Instansi</th>
+                <th class="text-center w-14">C1</th>
+                <th class="text-center w-14">C2</th>
+                <th class="text-center w-14">C3</th>
+                <th class="text-center w-14">C4</th>
+                <th class="text-right w-20">C1×W1</th>
+                <th class="text-right w-20">C2×W2</th>
+                <th class="text-right w-20">C3×W3</th>
+                <th class="text-right w-20">C4×W4</th>
+                <th class="text-right w-24 font-bold">Skor AHP</th>
+                <th class="w-36 text-center">Rekomendasi</th>
+              </tr>
+            </thead>
+            <tbody id="table-ranking"></tbody>
+          </table>
+        </div>
+        <div class="flex items-center justify-between p-4 border-t border-slate-200" id="pagination-controls"></div>
+      </div>
+    </section>
+
+    <!-- Tab 4: Dataset -->
+    <section id="content-dataset" class="tab-content animate-fade-in">
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 mb-4">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-2">
+            <button id="btn-add-app" class="btn btn-primary text-sm px-4 py-2 rounded-lg">
+              <span class="iconify" data-icon="mdi:plus" data-width="18" data-height="18" class="mr-1.5"></span>Tambah Aplikasi
+            </button>
+            <label class="btn-outline text-sm px-4 py-2 rounded-lg cursor-pointer inline-flex items-center">
+              <span class="iconify" data-icon="mdi:upload" data-width="18" data-height="18" class="mr-1.5"></span>Upload CSV
+              <input type="file" id="upload-csv" accept=".csv" class="hidden">
+            </label>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="btn-download-dataset" class="btn btn-outline text-sm px-4 py-2 rounded-lg">
+              <span class="iconify" data-icon="mdi:download" data-width="18" data-height="18" class="mr-1.5"></span>Download Dataset
+            </button>
+            <button id="btn-download-template" class="btn btn-outline text-sm px-4 py-2 rounded-lg">
+              <span class="iconify" data-icon="mdi:file-csv" data-width="18" data-height="18" class="mr-1.5"></span>Download Template
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200">
+        <div class="table-container-large">
+          <table class="data-table w-full text-sm">
+            <thead>
+              <tr>
+                <th class="w-14 text-center">#</th>
+                <th class="w-24">Kode</th>
+                <th>Nama Aplikasi</th>
+                <th>Instansi</th>
+                <th>Kategori</th>
+                <th class="text-center w-16">C1</th>
+                <th class="text-center w-16">C2</th>
+                <th class="text-center w-16">C3</th>
+                <th class="text-center w-16">C4</th>
+                <th class="text-center w-24">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="table-dataset"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Hidden file input -->
+  <input type="file" id="file-input-csv" accept=".csv" class="hidden">
+
+  <!-- Modal: Detail Evaluasi Aplikasi -->
+  <div id="modal-detail" class="modal-overlay hidden">
+    <div class="modal-content max-w-2xl">
+      <div class="modal-header">
+        <h3 class="text-lg font-bold text-slate-800"><span class="iconify" data-icon="mdi:magnify-chart" data-width="20" data-height="20" class="mr-2 text-indigo-500"></span>Detail Evaluasi Aplikasi</h3>
+        <button class="modal-close" data-close="modal-detail"><span class="iconify" data-icon="mdi:close" data-width="20" data-height="20"></span></button>
+      </div>
+      <div class="modal-body" id="modal-detail-body"></div>
+    </div>
+  </div>
+
+  <!-- Modal: Tambah Aplikasi -->
+  <div id="modal-add-app" class="modal-overlay hidden">
+    <div class="modal-content max-w-lg">
+      <div class="modal-header">
+        <h3 class="text-lg font-bold text-slate-800"><span class="iconify" data-icon="mdi:plus-circle" data-width="20" data-height="20" class="mr-2 text-indigo-500"></span>Tambah Aplikasi Baru</h3>
+        <button class="modal-close" data-close="modal-add-app"><span class="iconify" data-icon="mdi:close" data-width="20" data-height="20"></span></button>
+      </div>
+      <div class="modal-body">
+        <form id="form-add-app" class="space-y-4">
+          <div>
+            <label class="form-label">Nama Aplikasi</label>
+            <input type="text" id="add-nama" class="form-input w-full" placeholder="Contoh: e-Governance Portal" required>
+          </div>
+          <div>
+            <label class="form-label">Instansi Pengelola</label>
+            <input type="text" id="add-instansi" class="form-input w-full" placeholder="Contoh: Kementerian Kominfo" required>
+          </div>
+          <div>
+            <label class="form-label">Kategori SIA SPBE</label>
+            <select id="add-kategori" class="form-select w-full" required>
+              <option value="">— Pilih Kategori —</option>
+              <option value="Layanan Publik (G2C)">Layanan Publik (G2C)</option>
+              <option value="Administrasi Pemerintahan (G2G)">Administrasi Pemerintahan (G2G)</option>
+              <option value="Layanan Bisnis/BUMN (G2B)">Layanan Bisnis/BUMN (G2B)</option>
+              <option value="Layanan ASN (G2E)">Layanan ASN (G2E)</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="form-label">C1 — Interoperabilitas API (0–100)</label>
+              <input type="number" id="add-c1" class="form-input w-full font-mono" min="0" max="100" placeholder="0–100" required>
+            </div>
+            <div>
+              <label class="form-label">C2 — Keunikan Fungsi (0–100)</label>
+              <input type="number" id="add-c2" class="form-input w-full font-mono" min="0" max="100" placeholder="0–100" required>
+            </div>
+            <div>
+              <label class="form-label">C3 — Efisiensi Anggaran (0–100)</label>
+              <input type="number" id="add-c3" class="form-input w-full font-mono" min="0" max="100" placeholder="0–100" required>
+            </div>
+            <div>
+              <label class="form-label">C4 — Keamanan &amp; SDM (0–100)</label>
+              <input type="number" id="add-c4" class="form-input w-full font-mono" min="0" max="100" placeholder="0–100" required>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline text-sm px-4 py-2 rounded-lg" data-close="modal-add-app">Batal</button>
+        <button type="button" id="btn-submit-add-app" class="btn btn-primary text-sm px-4 py-2 rounded-lg">
+          <span class="iconify" data-icon="mdi:check" data-width="18" data-height="18" class="mr-1.5"></span>Simpan Aplikasi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Edit Aplikasi -->
+  <div id="modal-edit-app" class="modal-overlay hidden">
+    <div class="modal-content max-w-lg">
+      <div class="modal-header">
+        <h3 class="text-lg font-bold text-slate-800"><span class="iconify" data-icon="mdi:pen" data-width="20" data-height="20" class="mr-2 text-amber-600"></span>Edit Aplikasi</h3>
+        <button class="modal-close" data-close="modal-edit-app"><span class="iconify" data-icon="mdi:close" data-width="20" data-height="20"></span></button>
+      </div>
+      <div class="modal-body">
+        <form id="form-edit-app" class="space-y-4">
+          <input type="hidden" id="edit-index">
+          <div>
+            <label class="form-label">Kode Aplikasi</label>
+            <input type="text" id="edit-kode" class="form-input w-full bg-slate-100" readonly>
+          </div>
+          <div>
+            <label class="form-label">Nama Aplikasi</label>
+            <input type="text" id="edit-nama" class="form-input w-full" required>
+          </div>
+          <div>
+            <label class="form-label">Instansi Pengelola</label>
+            <input type="text" id="edit-instansi" class="form-input w-full" required>
+          </div>
+          <div>
+            <label class="form-label">Kategori SIA SPBE</label>
+            <select id="edit-kategori" class="form-select w-full" required>
+              <option value="Layanan Publik (G2C)">Layanan Publik (G2C)</option>
+              <option value="Administrasi Pemerintahan (G2G)">Administrasi Pemerintahan (G2G)</option>
+              <option value="Layanan Bisnis/BUMN (G2B)">Layanan Bisnis/BUMN (G2B)</option>
+              <option value="Layanan ASN (G2E)">Layanan ASN (G2E)</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="form-label">C1 — Interoperabilitas API (0–100)</label>
+              <input type="number" id="edit-c1" class="form-input w-full font-mono" min="0" max="100" required>
+            </div>
+            <div>
+              <label class="form-label">C2 — Keunikan Fungsi (0–100)</label>
+              <input type="number" id="edit-c2" class="form-input w-full font-mono" min="0" max="100" required>
+            </div>
+            <div>
+              <label class="form-label">C3 — Efisiensi Anggaran (0–100)</label>
+              <input type="number" id="edit-c3" class="form-input w-full font-mono" min="0" max="100" required>
+            </div>
+            <div>
+              <label class="form-label">C4 — Keamanan &amp; SDM (0–100)</label>
+              <input type="number" id="edit-c4" class="form-input w-full font-mono" min="0" max="100" required>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline text-sm px-4 py-2 rounded-lg" data-close="modal-edit-app">Batal</button>
+        <button type="button" id="btn-submit-edit-app" class="btn btn-primary text-sm px-4 py-2 rounded-lg">
+          <span class="iconify" data-icon="mdi:check" data-width="18" data-height="18" class="mr-1.5"></span>Simpan Perubahan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast-container" class="fixed bottom-4 right-4 z-50 space-y-2"></div>
+
+  <!-- Core Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

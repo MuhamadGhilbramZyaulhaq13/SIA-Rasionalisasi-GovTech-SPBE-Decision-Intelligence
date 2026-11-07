@@ -1,0 +1,12 @@
+# Netlify/Vercel Headers untuk static files
+# Mengatasi CORS dan caching untuk file CSV
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Cache CSV for performance
+/Dataset_500_Aplikasi_SPBE_INA_Digital.csv
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: text/csv; charset=utf-8
