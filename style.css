@@ -648,7 +648,7 @@ body {
   /* Briefing page fills page */
   .briefing-page {
     box-shadow: none !important; border: none !important; border-radius: 0 !important;
-    padding: 0 !important; min-height: auto !important; page-break-inside: avoid;
+    padding: 0 !important; min-height: auto !important; page-break-inside: auto;
   }
 
   /* KPI row - compact for print */
@@ -664,6 +664,13 @@ body {
   .briefing-chart-card { border: 1px solid #ccc; border-radius: 6px; }
   .briefing-chart-title { font-size: 0.7rem; padding: 8px 10px; }
   .briefing-chart-container { padding: 10px; aspect-ratio: 4/3; min-height: 140px; }
+  .briefing-chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 
   /* Tables */
   .briefing-tables-row { gap: 8px; }

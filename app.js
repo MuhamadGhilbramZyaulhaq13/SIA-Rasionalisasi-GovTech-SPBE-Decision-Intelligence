@@ -1166,6 +1166,27 @@ document.addEventListener('DOMContentLoaded', () => {
       showFallbackUI();
     });
 
+  // --- Fix: re-render charts before print so they're not blank in PDF ---
+  let didReRenderBeforePrint = false;
+  window.addEventListener('beforeprint', () => {
+    // Only re-render charts if we're printing the briefing page
+    const main = document.getElementById('main-content');
+    if (!main || didReRenderBeforePrint) return;
+    didReRenderBeforePrint = true;
+    if (typeof renderCharts === 'function') {
+      // Use requestAnimationFrame to ensure canvas dimensions are computed
+      // before the browser captures the page for PDF
+      requestAnimationFrame(() => {
+        renderCharts();
+      });
+    }
+  });
+
+  // Also re-enable the flag when print dialog closes (user clicks Cancel or prints)
+  window.addEventListener('afterprint', () => {
+    didReRenderBeforePrint = false;
+  });
+
   // --- Tab switching ---
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
