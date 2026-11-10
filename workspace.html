@@ -53,16 +53,16 @@
 <body class="bg-slate-50 font-sans text-slate-800 min-h-screen">
 
   <!-- ====== TOP NAVIGATION HEADER ====== -->
-  <header class="bg-gov-navy shadow-lg sticky top-0 z-40 border-b border-gov-indigo">
-    <div class="max-w-[1600px] mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-3">
+  <header class="bg-gov-navy shadow-lg sticky top-0 z-40 border-b border-gov-indigo w-full">
+    <div class="w-full px-4 py-3 flex items-center justify-between flex-wrap gap-3" style="min-width: 0;">
       <!-- Left: Branding -->
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-gov-indigo rounded-lg flex items-center justify-center shadow-lg">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-10 h-10 bg-gov-indigo rounded-lg flex items-center justify-center shadow-lg shrink-0">
           <span class="iconify" data-icon="tabler:shield-check" data-width="24" data-height="24" style="color: white;"></span>
         </div>
-        <div>
-          <h1 class="text-2xl font-bold leading-tight tracking-tight text-white">SIA-Rasionalisasi</h1>
-          <p class="text-sm text-white/90">GovTech SPBE Portfolio Decision Intelligence</p>
+        <div class="min-w-0">
+          <h1 class="text-xl sm:text-2xl font-bold leading-tight tracking-tight text-white truncate">SIA-Rasionalisasi</h1>
+          <p class="text-sm text-white/90 truncate">GovTech SPBE Portfolio Decision Intelligence</p>
         </div>
       </div>
 
@@ -71,18 +71,18 @@
         <span class="badge-regulasi text-sm px-2.5 py-1 rounded-full font-medium hidden sm:inline-flex items-center gap-1">
           <span class="iconify" data-icon="mdi:scale-balance" data-width="12" data-height="12"></span> Perpres 132/2022 &amp; 82/2023
         </span>
-        <span id="header-cr-badge" class="badge-konsisten text-sm px-2.5 py-1 rounded-full font-mono font-medium">
+        <span id="header-cr-badge" class="badge-konsisten text-xs sm:text-sm px-2 sm:px-2.5 py-1 rounded-full font-mono font-medium">
           CR: 0.0115 ✓
         </span>
         <div class="flex items-center gap-1.5">
-          <button id="btn-import-csv" class="btn btn-outline-dark text-sm px-3 py-1.5" title="Import CSV">
-            <span class="iconify" data-icon="mdi:file-import" data-width="16" data-height="16"></span>Import
+          <button id="btn-import-csv" class="btn btn-outline-dark text-sm px-2 sm:px-3 py-1.5" title="Import CSV">
+            <span class="iconify" data-icon="mdi:file-import" data-width="16" data-height="16"></span><span class="hidden sm:inline">Import</span>
           </button>
-          <button id="btn-add-app-header" class="btn btn-outline-dark text-sm px-3 py-1.5" title="Tambah Aplikasi">
-            <span class="iconify" data-icon="mdi:plus" data-width="16" data-height="16"></span>Tambah
+          <button id="btn-add-app-header" class="btn btn-outline-dark text-sm px-2 sm:px-3 py-1.5" title="Tambah Aplikasi">
+            <span class="iconify" data-icon="mdi:plus" data-width="16" data-height="16"></span><span class="hidden sm:inline">Tambah</span>
           </button>
-          <button id="btn-export-csv" class="btn btn-outline-dark text-sm px-3 py-1.5" title="Export CSV">
-            <span class="iconify" data-icon="mdi:file-export" data-width="16" data-height="16"></span>Export
+          <button id="btn-export-csv" class="btn btn-outline-dark text-sm px-2 sm:px-3 py-1.5" title="Export CSV">
+            <span class="iconify" data-icon="mdi:file-export" data-width="16" data-height="16"></span><span class="hidden sm:inline">Export</span>
           </button>
         </div>
       </div>
@@ -90,20 +90,35 @@
   </header>
 
   <!-- ====== TAB NAVIGATION ====== -->
-    <nav class="bg-white border-b border-slate-200 shadow-sm sticky top-[68px] z-30">
-      <div class="max-w-[1600px] mx-auto px-4 flex gap-0 overflow-x-auto">
-        <button class="tab-btn active" data-tab="dashboard" id="tab-dashboard">
-          <span class="iconify mr-1.5" data-icon="mdi:chart-pie" data-width="18" data-height="18"></span>Ringkasan Eksekutif
+    <nav class="bg-white border-b border-slate-200 shadow-sm sticky top-[68px] z-30 w-full">
+      <div class="w-full px-4 flex gap-1 overflow-x-auto pb-1" role="tablist" style="min-width: 0;">
+        <button class="tab-btn active flex-shrink-0" data-tab="dashboard" id="tab-dashboard" role="tab" aria-selected="true">
+          <span class="iconify mr-1.5 hidden sm:inline-flex" data-icon="mdi:chart-pie" data-width="18" data-height="18"></span>
+          <span class="sm:hidden" aria-hidden="true"><span class="iconify" data-icon="mdi:chart-pie" data-width="20" data-height="20"></span></span>
+          <span class="hidden sm:inline">Ringkasan Eksekutif</span>
         </button>
-        <button class="tab-btn" data-tab="ahp" id="tab-ahp">
-          <span class="iconify mr-1.5" data-icon="mdi:table-edit" data-width="18" data-height="18"></span>Konfigurasi AHP
+        <button class="tab-btn flex-shrink-0" data-tab="ahp" id="tab-ahp" role="tab" aria-selected="false">
+          <span class="iconify mr-1.5 hidden sm:inline-flex" data-icon="mdi:table-edit" data-width="18" data-height="18"></span>
+          <span class="sm:hidden" aria-hidden="true"><span class="iconify" data-icon="mdi:table-edit" data-width="20" data-height="20"></span></span>
+          <span class="hidden sm:inline">Konfigurasi AHP</span>
         </button>
-        <button class="tab-btn" data-tab="ranking" id="tab-ranking">
-          <span class="iconify mr-1.5" data-icon="mdi:trophy" data-width="18" data-height="18"></span>Perangkingan
+        <button class="tab-btn flex-shrink-0" data-tab="ranking" id="tab-ranking" role="tab" aria-selected="false">
+          <span class="iconify mr-1.5 hidden sm:inline-flex" data-icon="mdi:trophy" data-width="18" data-height="18"></span>
+          <span class="sm:hidden" aria-hidden="true"><span class="iconify" data-icon="mdi:trophy" data-width="20" data-height="20"></span></span>
+          <span class="hidden sm:inline">Perangkingan</span>
         </button>
-        <button class="tab-btn" data-tab="dataset" id="tab-dataset">
-          <span class="iconify mr-1.5" data-icon="mdi:database" data-width="18" data-height="18"></span>Dataset
+        <button class="tab-btn flex-shrink-0" data-tab="dataset" id="tab-dataset" role="tab" aria-selected="false">
+          <span class="iconify mr-1.5 hidden sm:inline-flex" data-icon="mdi:database" data-width="18" data-height="18"></span>
+          <span class="sm:hidden" aria-hidden="true"><span class="iconify" data-icon="mdi:database" data-width="20" data-height="20"></span></span>
+          <span class="hidden sm:inline">Dataset</span>
         </button>
+      </div>
+      <!-- Scroll indicator -->
+      <div class="hidden px-4 pb-2" id="tab-scroll-indicator" aria-hidden="true">
+        <div class="flex items-center justify-center gap-2 text-xs text-slate-400">
+          <!-- <span class="iconify" data-icon="mdi:chevron-double-right" data-width="16" data-height="16"></span> -->
+          <!-- <span class="iconify" data-icon="mdi:chevron-double-right" data-width="16" data-height="16" style="transform: rotate(180deg);"></span> -->
+        </div>
       </div>
     </nav>
 
@@ -119,17 +134,17 @@
       <!-- Briefing Header (screen-visible) -->
       <header class="briefing-header mb-4" aria-hidden="false">
         <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-gov-indigo rounded-lg flex items-center justify-center">
+          <div class="flex items-center gap-3 flex-shrink">
+            <div class="w-8 h-8 bg-gov-indigo rounded-lg flex items-center justify-center shrink-0">
               <span class="iconify" data-icon="tabler:shield-check" data-width="20" data-height="20" style="color: white;"></span>
             </div>
-            <div>
-              <h1 class="text-xl font-bold text-gov-navy">SIA-Rasionalisasi — Briefing Eksekutif</h1>
-              <p class="text-sm text-slate-600">Evaluasi Portofolio Aplikasi SPBE — Metode AHP</p>
+            <div class="min-w-0">
+              <h1 class="text-lg sm:text-xl font-bold leading-snug text-gov-navy whitespace-normal break-words">SIA-Rasionalisasi — Briefing Eksekutif</h1>
+              <p class="text-xs sm:text-sm text-slate-600 whitespace-normal break-words">Evaluasi Portofolio Aplikasi SPBE — Metode AHP</p>
             </div>
           </div>
-          <div class="flex items-center gap-2">
-            <span id="briefing-timestamp" class="text-sm text-slate-100 font-mono px-3 py-1 bg-slate-800 rounded">Data per: —</span>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
+            <span id="briefing-timestamp" class="text-sm text-slate-800 font-mono px-3 py-1 bg-slate-100 rounded text-center">Data per: —</span>
             <button id="btn-print-briefing" class="btn btn-primary text-sm px-3 py-1.5 rounded-lg" onclick="window.print()">
               <span class="iconify" data-icon="mdi:printer" data-width="16" data-height="16" class="mr-1"></span>Cetak Briefing PDF
             </button>
@@ -142,7 +157,7 @@
       </header>
 
       <!-- Hero Metric Row -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4 briefing-kpi-row">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4 briefing-kpi-row">
         <!-- Total -->
         <article class="briefing-kpi briefing-kpi-total" aria-label="Total portofolio dievaluasi">
           <div class="briefing-kpi-icon" aria-hidden="true">
@@ -216,19 +231,19 @@
         <section class="briefing-table-card" aria-labelledby="top10-title">
           <header class="briefing-table-header">
             <h2 id="top10-title" class="briefing-table-title">
-              <span class="iconify" data-icon="mdi:arrow-up-bold-box" data-width="18" data-height="18" class="mr-1"></span>
+              <span class="iconify" data-icon="mdi:arrow-up-bold-box" data-width="18" data-height="18" class="mr-1 shrink-0"></span>
               Top 10 Prioritas Integrasi INA Digital
             </h2>
           </header>
-          <div class="briefing-table-container">
-            <table class="briefing-table" role="table">
+          <div class="briefing-table-container overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
+            <table class="briefing-table min-w-[480px]" role="table">
               <thead>
                 <tr>
-                  <th scope="col" class="briefing-col-rank">#</th>
-                  <th scope="col" class="briefing-col-kode">Kode</th>
-                  <th scope="col" class="briefing-col-nama">Nama Aplikasi</th>
-                  <th scope="col" class="briefing-col-instansi">Instansi</th>
-                  <th scope="col" class="briefing-col-score">Skor AHP</th>
+                  <th scope="col" class="briefing-col-rank whitespace-nowrap">#</th>
+                  <th scope="col" class="briefing-col-kode whitespace-nowrap">Kode</th>
+                  <th scope="col" class="briefing-col-nama min-w-[160px]">Nama Aplikasi</th>
+                  <th scope="col" class="briefing-col-instansi min-w-[140px]">Instansi</th>
+                  <th scope="col" class="briefing-col-score whitespace-nowrap">Skor AHP</th>
                 </tr>
               </thead>
               <tbody id="table-top10"></tbody>
@@ -238,19 +253,19 @@
         <section class="briefing-table-card" aria-labelledby="bottom5-title">
           <header class="briefing-table-header">
             <h2 id="bottom5-title" class="briefing-table-title">
-              <span class="iconify" data-icon="mdi:arrow-down-bold-box" data-width="18" data-height="18" class="mr-1"></span>
+              <span class="iconify" data-icon="mdi:arrow-down-bold-box" data-width="18" data-height="18" class="mr-1 shrink-0"></span>
               Bottom 5 Kandidat Decommissioned
             </h2>
           </header>
-          <div class="briefing-table-container">
-            <table class="briefing-table" role="table">
+          <div class="briefing-table-container overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
+            <table class="briefing-table min-w-[480px]" role="table">
               <thead>
                 <tr>
-                  <th scope="col" class="briefing-col-rank">#</th>
-                  <th scope="col" class="briefing-col-kode">Kode</th>
-                  <th scope="col" class="briefing-col-nama">Nama Aplikasi</th>
-                  <th scope="col" class="briefing-col-instansi">Instansi</th>
-                  <th scope="col" class="briefing-col-score">Skor AHP</th>
+                  <th scope="col" class="briefing-col-rank whitespace-nowrap">#</th>
+                  <th scope="col" class="briefing-col-kode whitespace-nowrap">Kode</th>
+                  <th scope="col" class="briefing-col-nama min-w-[160px]">Nama Aplikasi</th>
+                  <th scope="col" class="briefing-col-instansi min-w-[140px]">Instansi</th>
+                  <th scope="col" class="briefing-col-score whitespace-nowrap">Skor AHP</th>
                 </tr>
               </thead>
               <tbody id="table-bottom5"></tbody>
@@ -276,11 +291,11 @@
     <section id="content-ahp" class="tab-content animate-fade-in">
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
         <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5">
-          <h2 class="text-xl font-semibold text-slate-700 mb-4 flex items-center gap-2">
-            <span class="iconify" data-icon="mdi:table-edit" data-width="20" data-height="20" class="mr-2 text-indigo-500"></span>Matriks Perbandingan Berpasangan (Skala Saaty 1–9)
+          <h2 class="text-xl font-semibold text-slate-700 mb-4 flex items-center gap-2 flex-wrap">
+            <span class="iconify" data-icon="mdi:table-edit" data-width="20" data-height="20" class="mr-2 text-indigo-500 shrink-0"></span>Matriks Perbandingan Berpasangan (Skala Saaty 1–9)
           </h2>
-          <div class="overflow-x-auto">
-            <table class="matrix-table w-full text-sm text-center" id="matrix-pairwise">
+          <div class="table-wrapper overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
+            <table class="matrix-table w-full min-w-[480px] text-sm text-center" id="matrix-pairwise">
               <thead>
                 <tr class="bg-slate-100">
                   <th class="p-2 font-semibold text-slate-600">Kriteria</th>
@@ -329,11 +344,11 @@
               </tbody>
             </table>
           </div>
-          <div class="flex gap-2 mt-4">
-            <button id="btn-recalculate" class="btn btn-primary text-sm px-4 py-2 rounded-lg">
+          <div class="flex flex-col sm:flex-row gap-2 mt-4">
+            <button id="btn-recalculate" class="btn btn-primary text-sm px-4 py-2 rounded-lg w-full sm:w-auto">
               <span class="iconify" data-icon="mdi:calculator" data-width="18" data-height="18" class="mr-1.5"></span>Hitung Ulang Bobot &amp; Perangkingan
             </button>
-            <button id="btn-reset-ahp" class="btn btn-outline text-sm px-4 py-2 rounded-lg">
+            <button id="btn-reset-ahp" class="btn btn-outline text-sm px-4 py-2 rounded-lg w-full sm:w-auto">
               <span class="iconify" data-icon="mdi:rotate-left" data-width="18" data-height="18" class="mr-1.5"></span>Reset Default
             </button>
           </div>
@@ -438,28 +453,32 @@
       </div>
 
       <div class="bg-white rounded-xl shadow-sm border border-slate-200">
-        <div class="table-container-large">
-          <table class="data-table w-full text-sm">
+        <div class="table-wrapper overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
+          <table class="data-table w-full min-w-[960px] text-sm">
             <thead>
               <tr>
-                <th class="w-16 text-center">Rank</th>
-                <th class="w-24">Kode</th>
-                <th>Nama Aplikasi</th>
-                <th>Instansi</th>
-                <th class="text-center w-14">C1</th>
-                <th class="text-center w-14">C2</th>
-                <th class="text-center w-14">C3</th>
-                <th class="text-center w-14">C4</th>
-                <th class="text-right w-20">C1×W1</th>
-                <th class="text-right w-20">C2×W2</th>
-                <th class="text-right w-20">C3×W3</th>
-                <th class="text-right w-20">C4×W4</th>
-                <th class="text-right w-24 font-bold">Skor AHP</th>
-                <th class="w-36 text-center">Rekomendasi</th>
+                <th class="w-16 text-center whitespace-nowrap">Rank</th>
+                <th class="w-28 whitespace-nowrap">Kode</th>
+                <th class="min-w-[180px]">Nama Aplikasi</th>
+                <th class="min-w-[150px]">Instansi</th>
+                <th class="text-center w-14 whitespace-nowrap">C1</th>
+                <th class="text-center w-14 whitespace-nowrap">C2</th>
+                <th class="text-center w-14 whitespace-nowrap">C3</th>
+                <th class="text-center w-14 whitespace-nowrap">C4</th>
+                <th class="text-right w-20 whitespace-nowrap">C1×W1</th>
+                <th class="text-right w-20 whitespace-nowrap">C2×W2</th>
+                <th class="text-right w-20 whitespace-nowrap">C3×W3</th>
+                <th class="text-right w-20 whitespace-nowrap">C4×W4</th>
+                <th class="text-right w-24 font-bold whitespace-nowrap">Skor AHP</th>
+                <th class="w-36 text-center whitespace-nowrap">Rekomendasi</th>
               </tr>
             </thead>
             <tbody id="table-ranking"></tbody>
           </table>
+        </div>
+        <!-- Mobile scroll hint -->
+        <div class="hidden sm:block px-2 py-1 text-xs text-slate-400 text-center" id="ranking-scroll-hint">
+          <span class="iconify" data-icon="mdi:chevron-double-right" data-width="14" data-height="14" class="inline-block mr-1"></span> Geser tabel ke kanan untuk kolom C1–C4, Skor & Rekomendasi
         </div>
         <div class="flex items-center justify-between p-4 border-t border-slate-200" id="pagination-controls"></div>
       </div>
@@ -468,21 +487,21 @@
     <!-- Tab 4: Dataset -->
     <section id="content-dataset" class="tab-content animate-fade-in">
       <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 mb-4">
-        <div class="flex items-center justify-between flex-wrap gap-3">
+        <div class="flex flex-col sm:flex-row items-center gap-3">
           <div class="flex items-center gap-2">
-            <button id="btn-add-app" class="btn btn-primary text-sm px-4 py-2 rounded-lg">
+            <button id="btn-add-app" class="btn btn-primary text-sm px-4 py-2 rounded-lg flex-1">
               <span class="iconify" data-icon="mdi:plus" data-width="18" data-height="18" class="mr-1.5"></span>Tambah Aplikasi
             </button>
-            <label class="btn-outline text-sm px-4 py-2 rounded-lg cursor-pointer inline-flex items-center">
+            <label class="btn-outline text-sm px-4 py-2 rounded-lg cursor-pointer inline-flex items-center flex-1">
               <span class="iconify" data-icon="mdi:upload" data-width="18" data-height="18" class="mr-1.5"></span>Upload CSV
               <input type="file" id="upload-csv" accept=".csv" class="hidden">
             </label>
           </div>
-          <div class="flex items-center gap-2">
-            <button id="btn-download-dataset" class="btn btn-outline text-sm px-4 py-2 rounded-lg">
+          <div class="flex items-center gap-2 sm:w-full">
+            <button id="btn-download-dataset" class="btn btn-outline text-sm px-4 py-2 rounded-lg flex-1">
               <span class="iconify" data-icon="mdi:download" data-width="18" data-height="18" class="mr-1.5"></span>Download Dataset
             </button>
-            <button id="btn-download-template" class="btn btn-outline text-sm px-4 py-2 rounded-lg">
+            <button id="btn-download-template" class="btn btn-outline text-sm px-4 py-2 rounded-lg flex-1">
               <span class="iconify" data-icon="mdi:file-csv" data-width="18" data-height="18" class="mr-1.5"></span>Download Template
             </button>
           </div>
@@ -490,24 +509,28 @@
       </div>
 
       <div class="bg-white rounded-xl shadow-sm border border-slate-200">
-        <div class="table-container-large">
-          <table class="data-table w-full text-sm">
+        <div class="table-wrapper overflow-x-auto" style="-webkit-overflow-scrolling: touch;">
+          <table class="data-table w-full min-w-[720px] text-sm">
             <thead>
               <tr>
-                <th class="w-14 text-center">#</th>
-                <th class="w-24">Kode</th>
-                <th>Nama Aplikasi</th>
-                <th>Instansi</th>
-                <th>Kategori</th>
-                <th class="text-center w-16">C1</th>
-                <th class="text-center w-16">C2</th>
-                <th class="text-center w-16">C3</th>
-                <th class="text-center w-16">C4</th>
-                <th class="text-center w-24">Aksi</th>
+                <th class="w-14 text-center whitespace-nowrap">#</th>
+                <th class="w-28 whitespace-nowrap">Kode</th>
+                <th class="min-w-[180px]">Nama Aplikasi</th>
+                <th class="min-w-[150px]">Instansi</th>
+                <th class="min-w-[120px]">Kategori</th>
+                <th class="text-center w-16 whitespace-nowrap">C1</th>
+                <th class="text-center w-16 whitespace-nowrap">C2</th>
+                <th class="text-center w-16 whitespace-nowrap">C3</th>
+                <th class="text-center w-16 whitespace-nowrap">C4</th>
+                <th class="text-center w-24 whitespace-nowrap">Aksi</th>
               </tr>
             </thead>
             <tbody id="table-dataset"></tbody>
           </table>
+        </div>
+        <!-- Mobile scroll hint -->
+        <div class="hidden sm:block px-2 py-1 text-xs text-slate-400 text-center" id="dataset-scroll-hint">
+          <span class="iconify" data-icon="mdi:chevron-double-right" data-width="14" data-height="14" class="inline-block mr-1"></span> Geser tabel ke kanan untuk kolom C1–C4 & Aksi
         </div>
       </div>
     </section>

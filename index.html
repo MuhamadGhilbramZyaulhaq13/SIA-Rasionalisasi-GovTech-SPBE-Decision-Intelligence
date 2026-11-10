@@ -81,28 +81,50 @@
 
         <!-- Actions -->
         <div class="flex items-center gap-3 shrink-0">
+          <!-- Mobile hamburger menu button (visible only below 768px) -->
+          <button id="mobile-menu-btn" class="mobile-menu-btn md:hidden" aria-label="Buka menu navigasi">
+            <span class="iconify" data-icon="mdi:menu" data-width="24" data-height="24" style="color: #334155;"></span>
+          </button>
           <button id="landing-cta-primary" class="btn-primary text-sm px-5 py-2 rounded-lg bg-indigo-700 text-white hover:bg-indigo-600 transition-colors flex items-center gap-2" type="button">
-            Buka Workspace AHP
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <span class="hidden sm:inline">Buka Workspace AHP</span>
+            <span class="sm:hidden">Workspace</span>
+            <svg class="w-4 h-4 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </button>
         </div>
       </nav>
     </header>
 
+    <!-- Mobile nav overlay (hidden by default) -->
+    <div id="mobile-nav-overlay" class="mobile-nav-overlay" role="navigation" aria-label="Mobile navigation">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-semibold text-slate-900">Navigasi</h2>
+        <button id="close-mobile-nav" class="p-2 rounded-lg hover:bg-slate-100" aria-label="Tutup menu">
+          <span class="iconify" data-icon="mdi:close" data-width="24" data-height="24" style="color: #334155;"></span>
+        </button>
+      </div>
+      <a href="#urgensi" class="mobile-nav-overlink">Urgensi SPBE</a>
+      <a href="#arsitektur" class="mobile-nav-overlink">Arsitektur Kriteria</a>
+      <a href="#kebijakan" class="mobile-nav-overlink">Matriks Kebijakan</a>
+      <a href="#metodologi" class="mobile-nav-overlink">Metodologi AHP</a>
+      <button onclick="switchView('workspace','tab-dashboard')" class="mobile-nav-overlink w-full text-left mt-4 bg-indigo-700 text-white rounded-lg px-4 py-3 font-medium">
+        Buka Workspace AHP →
+      </button>
+    </div>
+
     <!-- Hero Section -->
-    <section id="hero" class="pt-32 pb-20 px-6" aria-labelledby="hero-title">
+    <section id="hero" class="pt-32 pb-20 px-4 sm:px-6" aria-labelledby="hero-title">
       <div class="max-w-[1200px] mx-auto">
         <div class="grid lg:grid-cols-12 gap-12 items-start">
           <!-- Left: Copy -->
           <div class="lg:col-span-7">
             <!-- Eyebrow Badge -->
-            <span class="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 text-slate-700 text-sm font-medium rounded-full mb-6" aria-label="Regulatory compliance">
-              <svg class="w-3.5 h-3.5 text-indigo-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-              Instrumen Kepatuhan Perpres No. 132/2022 & Perpres No. 82/2023
+            <span class="inline-flex flex-wrap items-center gap-2 px-3 py-1 bg-slate-100 text-slate-700 text-xs sm:text-sm font-medium rounded-full mb-6" aria-label="Regulatory compliance">
+              <svg class="w-3.5 h-3.5 text-indigo-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              <span>Instrumen Kepatuhan Perpres No. 132/2022 & Perpres No. 82/2023</span>
             </span>
 
             <!-- Main Headline -->
-            <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-6">
+            <h1 id="hero-title" class="text-2xl sm:text-3xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.2] mb-6">
               Hentikan Siloisasi. Rasionalisasi Portofolio Aplikasi Layanan Publik Secara Objektif.
             </h1>
 
@@ -585,6 +607,25 @@
           // This won't work cross-page; user needs to click upload manually on workspace
           // Could use sessionStorage to signal auto-open, but keeping simple for now
         }, 50);
+      });
+
+      // Mobile nav toggle
+      document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+        document.getElementById('mobile-nav-overlay')?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      document.getElementById('close-mobile-nav')?.addEventListener('click', () => {
+        document.getElementById('mobile-nav-overlay')?.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      // Close overlay when clicking a link
+      document.querySelectorAll('#mobile-nav-overlay a')?.forEach(link => {
+        link.addEventListener('click', () => {
+          document.getElementById('mobile-nav-overlay')?.classList.remove('active');
+          document.body.style.overflow = '';
+        });
       });
     });
   </script>

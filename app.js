@@ -1187,7 +1187,18 @@ document.addEventListener('DOMContentLoaded', () => {
     didReRenderBeforePrint = false;
   });
 
-  // --- Tab switching ---
+  // --- Tab switching & scroll indicator ---
+  function updateTabScrollIndicator() {
+    const nav = document.querySelector('nav[role="tablist"]');
+    const indicator = document.getElementById('tab-scroll-indicator');
+    if (!nav || !indicator) return;
+    // Show indicator if content overflows
+    const hasOverflow = nav.scrollWidth > nav.clientWidth + 2; // 2px tolerance
+    indicator.classList.toggle('hidden', !hasOverflow);
+    // Position indicator based on scroll
+    indicator.style.opacity = nav.scrollLeft > 0 ? '0.5' : '1';
+  }
+
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const tab = btn.dataset.tab;
@@ -1199,8 +1210,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (tab === 'dashboard') {
         renderCharts();
       }
+      // Scroll tab into view
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      setTimeout(updateTabScrollIndicator, 100);
     });
   });
+
+  // Listen for scroll on tab nav to update indicator
+  const tabNav = document.querySelector('nav[role="tablist"]');
+  if (tabNav) {
+    tabNav.addEventListener('scroll', updateTabScrollIndicator, { passive: true });
+    // Initial check
+    setTimeout(updateTabScrollIndicator, 200);
+  }
 
   // --- AHP Buttons ---
   document.getElementById('btn-recalculate')?.addEventListener('click', () => {

@@ -1075,3 +1075,383 @@ footer a:hover {
     display: none !important;
   }
 }
+
+/* =============================================================================
+   20. MOBILE & GLOBAL RESPONSIVE FIXES
+   ============================================================================= */
+
+/* --- Mobile Navigation Overlay (Landing) ------------------------------------ */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  max-width: 85vw;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-xl);
+  z-index: 50;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6) var(--space-4);
+  overflow-y: auto;
+}
+
+.mobile-nav-overlay.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-overlay a {
+  display: block;
+  padding: var(--space-3) var(--space-2);
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: background var(--duration-fast);
+}
+
+.mobile-nav-overlay a:hover,
+.mobile-nav-overlay a:focus {
+  background: var(--color-surface-hover);
+  outline: none;
+}
+
+.mobile-nav-overlay a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.mobile-nav-overlay .mobile-nav-cta {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.mobile-nav-overlay .mobile-nav-cta a {
+  background: var(--color-primary);
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  padding: var(--space-3) var(--space-4);
+}
+
+.mobile-nav-overlay .mobile-nav-cta a:hover {
+  background: var(--color-primary-hover);
+  color: white;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+}
+
+/* --- Workspace Header Mobile Fixes ------------------------------------------ */
+@media (max-width: 640px) {
+  /* Header container: allow shrinking, prevent overflow */
+  header[role="banner"],
+  header[role="banner"] > div,
+  header[role="banner"] .flex.items-center {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Branding text: truncate long titles */
+  header[role="banner"] h1 {
+    font-size: 1.125rem !important;
+    max-width: 180px;
+  }
+
+  header[role="banner"] p {
+    font-size: 0.75rem !important;
+    max-width: 180px;
+  }
+
+  /* CR Badge: smaller on mobile */
+  header[role="banner"] .inline-flex.items-center.gap-1 {
+    font-size: 0.7rem !important;
+    padding: 0.125rem 0.375rem !important;
+  }
+
+  /* Action buttons: icon-only, smaller padding */
+  header[role="banner"] button[title] {
+    padding: 0.375rem 0.5rem !important;
+  }
+
+  header[role="banner"] button[title] span:not([class*="icon"]) {
+    display: none !important;
+  }
+
+  /* Tab navigation: icon-only on mobile, enable horizontal scroll */
+  nav[role="tablist"] {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0.25rem !important;
+    padding-bottom: 0.25rem;
+  }
+
+  nav[role="tablist"]::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav[role="tablist"] .tab-btn {
+    min-width: 96px !important;
+    padding: 0.5rem 0.75rem !important;
+    justify-content: center !important;
+  }
+
+  nav[role="tablist"] .tab-btn span:not([class*="icon"]) {
+    display: none !important;
+  }
+
+  nav[role="tablist"] .tab-btn [class*="icon"] {
+    margin: 0 !important;
+  }
+
+  /* KPI Grid: force single column on mobile */
+  .briefing-kpi-grid,
+  #briefing-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Briefing Header: stack vertically, full-width buttons */
+  .briefing-header {
+    padding: var(--space-3) var(--space-4) !important;
+  }
+
+  .briefing-header .flex.items-center.justify-between {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--space-3) !important;
+    width: 100% !important;
+  }
+
+  .briefing-header .flex.items-center.gap-2 {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--space-2) !important;
+    width: 100% !important;
+  }
+
+  .briefing-header .flex.items-center.gap-2 > * {
+    width: 100% !important;
+  }
+
+  .briefing-header #btn-print-briefing {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Briefing Title: allow wrap instead of truncate */
+  .briefing-header h1 {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Hero CTA buttons: full width on mobile */
+  #hero .flex.flex-col.sm\\:flex-row {
+    flex-direction: column !important;
+  }
+
+  #hero .flex.flex-col.sm\\:flex-row > * {
+    width: 100% !important;
+  }
+
+  /* Sub-headline: smaller on mobile */
+  #hero p.text-lg,
+  #hero .text-lg {
+    font-size: 1rem !important;
+  }
+
+  /* =============================================================================
+     ENHANCED MOBILE FIXES - Section 20b
+     ============================================================================= */
+
+  /* AHP Matrix Tables: horizontal scroll with visible hint */
+  .table-wrapper,
+  .briefing-table-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+  }
+
+  .table-wrapper::-webkit-scrollbar,
+  .briefing-table-container::-webkit-scrollbar {
+    height: 8px !important;
+    display: block !important;
+  }
+
+  .table-wrapper::-webkit-scrollbar-track,
+  .briefing-table-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .table-wrapper::-webkit-scrollbar-thumb,
+  .briefing-table-container::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .table-wrapper::-webkit-scrollbar-thumb:hover,
+  .briefing-table-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
+
+  /* Matrix table minimum widths */
+  #matrix-pairwise,
+  #table-normalized {
+    min-width: 520px !important;
+  }
+
+  /* AHP Action Buttons: stacked full-width on mobile */
+  #btn-recalculate,
+  #btn-reset-ahp {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Dataset Tab: Action buttons grid full-width stacked */
+  #content-dataset .flex.flex-col.sm\\:flex-row {
+    flex-direction: column !important;
+  }
+
+  #content-dataset .flex.flex-col.sm\\:flex-row > div {
+    width: 100% !important;
+  }
+
+  #content-dataset .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Tables: prevent aggressive truncation, allow more content */
+  .briefing-table td,
+  .data-table td,
+  .matrix-table td {
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+
+  /* Ranking table cells: better readability */
+  #table-ranking td,
+  #table-top10 td,
+  #table-bottom5 td {
+    padding: 0.5rem 0.75rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Scroll hint visibility */
+  #tab-scroll-indicator {
+    display: block !important;
+    background: linear-gradient(90deg, transparent, var(--color-surface), transparent);
+    margin-top: -0.5rem;
+    padding-top: 0.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Chart containers: responsive */
+  .briefing-chart-container {
+    min-height: 200px !important;
+  }
+
+  /* Modal responsive */
+  .modal-content {
+    margin: 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    max-height: calc(100vh - 2rem) !important;
+  }
+
+  .modal-body {
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+  }
+
+  /* Filter bar: stack on mobile */
+  #content-ranking .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Weight bars: stack */
+  #weight-bars {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  /* CR Audit grid: stack */
+  .cr-formula {
+    font-size: 0.75rem !important;
+    padding: 0.5rem !important;
+  }
+}
+
+/* Medium screens: 641px - 768px */
+@media (min-width: 641px) and (max-width: 768px) {
+  .briefing-header h1 {
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+
+  #matrix-pairwise,
+  #table-normalized {
+    min-width: 580px !important;
+  }
+}
+
+/* Tab nav scroll indicator (all sizes) */
+#tab-scroll-indicator {
+  transition: opacity 0.2s ease;
+  padding-top: 0.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* --- Global Horizontal Overflow Prevention ---------------------------------- */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Ensure all containers respect viewport width */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent any element from causing horizontal scroll */
+img,
+video,
+canvas,
+svg,
+iframe,
+table {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form elements shouldn't overflow */
+input,
+textarea,
+select,
+button {
+  max-width: 100%;
+}
