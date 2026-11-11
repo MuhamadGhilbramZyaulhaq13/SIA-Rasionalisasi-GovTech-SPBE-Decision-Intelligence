@@ -3,6 +3,7 @@
 > **Sistem Evaluasi, Prioritas Integrasi, dan Rasionalisasi Portofolio Aplikasi Layanan Publik Berbasis Arsitektur SPBE Nasional**
 
 Platform *Decision Intelligence* tingkat enterprise untuk membantu kementerian, lembaga, pemerintah daerah, dan BUMN dalam mengevaluasi serta merasionalisasi ratusan hingga ribuan aplikasi layanan publik dalam Sistem Informasi Arsitektur (SIA) SPBE.
+>[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24123452.svg)](https://doi.org/10.5281/zenodo.24123452)
 
 ---
 
