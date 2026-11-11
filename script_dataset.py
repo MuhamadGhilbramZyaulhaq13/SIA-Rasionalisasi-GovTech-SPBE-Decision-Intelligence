@@ -58,7 +58,6 @@ for i in range(1, n_data + 1):
 
 df = pd.DataFrame(rows)
 
-# Simpan ke file ber-timestamp (unik setiap dijalankan) dan perbarui file utama
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 nama_file_unik = f"Dataset_500_Aplikasi_SPBE_{timestamp}.csv"
 
